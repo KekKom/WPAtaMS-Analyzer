@@ -319,6 +319,9 @@ book1[0].append("This is manually added TIME: 1530")
 book1.append(redditChapterText.split('\n'))
 
 with open("res.csv","w") as f:
+
+    f.write("chapter_number,day35Beginning,day35End,day35T1530\n")
+
     for i in range(2,len(book1)):
         book = book1[:i]
         import re
