@@ -1,300 +1,388 @@
 redditChapterText = """
- 
+ The two parade floats showed no signs of stopping.
 
-Nexus. The Crown Herald Town of Elaseer. Ambassadorial District. The Adventurer’s Guild Hall… name pending. Local Time: 0700 Hours.
+A fact quickly corroborated by the EVI.
+
+[Warning! Collision imminent!]
+
+So, without hesitation, I made my moves.
+
+With one arm picking up the diminutive ferret — his whole body elongating like a slinky in the process — and the other arm poised to deploy the much-dreaded grappling hook, aimed just above Auris’ float.
+
+[Grappler trajectory confirmed! Proceed?]
+
+However, no sooner were those calculations made, did the figureheads of both floats suddenly come to their senses, ordering their respective hallway-sized ego-machines to an abrupt halt.
+
+Though, it would quickly become clear that this wasn’t done for the sake of the pedestrian.
+
+Instead, the two parties seemed to be first and foremost preoccupied amongst themselves.
+
+“Does Lord Auris Ping of Pronarthiarealm, fellow peer of the Transgracian Academy for the Magical Arts, yield to the Class Sovereign candidate, Lord Qiv’Ratom?!” The hamster-like Rostario shrieked bombastically, earning nothing but an annoyed grunt from the bull.
+
+“No, I do not yield!” Ping shouted back, prompting Ladona to push forward with what I assumed to be a rebuttal.
+
+“Does Lord Qiv’Ratom of Baralonrealm, fellow peer of the Transgracian Academy for the Magical Arts, yield to the Class Sovereign candidate, Lord Auris Ping?!” Ladona shot back.
+
+“No, I do not yield.” Qiv declared with a surprising degree of class compared to his bullish counterpart.
+
+All of this culminated in both would-be candidates shifting their attentions down from their thrones, towards both me and the ferret merchant lord.
+
+“Do, you, Cadet Emma Booker of Earthrealm, fellow peer of the Transgracian—”
+
+“—Academy for the Magical arts, yadda, yadda, yadda…” I interrupted, letting my annoyance be known. “First of all, let’s take a step back. What’s all of this actually about?” I gestured frantically towards either float, decorated to the brim with mana-enriched metals glistening with not just random specks of light, but outright patterns that ranged from flowers to intricate engravings, to even the signatures of either ‘candidate’.
+
+That question, whilst received with a series of nods from Qiv’s group, seemed to be enough to give Ping the ‘ammunition’ he needed to strike back.
+
+“HAH! The newrealmer once more shows her true colors, as one so lacking in the deeper nuances of the dynamics of power beyond mere feats of physical strength.” He taunted, eliciting an uproarious series of laughs from his float-members and followers, prompting me to tap my feet in response.
+
+“You must have quite the selective memory, Lord Ping, because if I recall correctly… you of all people had first-hand experience with a certain library card belonging to yours truly.” I stated bluntly, my hand tapping the pouch housing the aforementioned card. “I assume that the library doesn’t just hand out these things for ‘mere feats of physical strength’, now does it?”
+
+The bull’s eyes grew wide at that retort, Ladona’s spindly hands seemingly the only thing keeping him from violently leaping out at me, as she gently massaged his shoulders in an attempt to calm him down.
+
+Qiv’Ratom, however, cleared his throat to call for our attention. “Please be reasonable, Lord Ping. It’s simply unreasonable to assume she — a newrealmer with the barest grasp of our civil practices — has an answer to every question, so let’s try to enlighten her in a civilized manner, yes?”
+
+The bull refused to respond, simply shrugging as Qiv momentarily took the reins of the conversation. “What you see before you are floats, newrealmer. They are part of a long-standing tradition; the procession for one’s ‘declaration to campaign’ for the position of Class Sovereign.”
+
+“Right.” I nodded in acknowledgement. “So… I’m guessing the class sovereign is like, the de-facto leader or representative of the year group or something?”
+
+“Correct, newrealmer.” Qiv responded tactfully. “It is a position which only one may hold, for the duration of the entirety of the year group’s enrollment within the Academy.”
+
+Cogs started turning in my head at that revelation, as it quickly became clear how Class Sovereign probably wasn’t a clean one-to-one analog of Class President, but was once again probably yet another twisted mirror-version of the institutions back home.
+
+So even the humble Class President isn’t safe from Nexian-ification, huh?
+
+“I’m assuming that there’s no voting involved then, is there?” I responded with a sigh, garnering a nod from Qiv, and an indignant huff from Ping.
+
+“Define… voting, newrealmer.” The bull replied with a dismissive chuckle.
+
+“Oh come on… I know you guys at least have some concept of it.” I began with an exasperated sigh. “Voting… the process of choosing officials in positions of power, or policies, by declaring or casting your preference for said official or policy.”
+
+“And exactly why would we ever put such a time-honored and storied position to the whims of the esoteric inclinations of the ravenous masses?” Ping responded with an indignant huff. “Yes, the concept of voting is not beyond us. But the act of voting, of casting your decision, is one which must be made amongst equals of heritage, pedigree, and titles. From the peerage council of class sovereigns, to the privy council in His Eternal Majesty’s court, the act of voting is sacrosanct, and must be reserved for those deserving of it. And even then, council decisions, no matter how unanimous, must ultimately always be subject to the will of the highest sovereign by decree or birthright.”
+
+“The Dean is to the Class Sovereigns, what His Eternal Majesty is to the Privy Council — the ultimate voice amidst what are effectively extensions of his own power.” Qiv concluded, garnering what was perhaps one of the few nods of acknowledgement from Ping.
+
+“Right, so, if not voting… how exactly is the Class Sovereign chosen?”
+
+“By Dean’s decree, of course.” Ping responded with a self-satisfied smile. “Haven’t you been listening, newrealmer?”
+
+“If we’re being pedantic about it, that would be the answer.” I replied with an annoyed grunt. “But I meant the actual process, Lord Ping.”
+
+“The prerequisite to even entering the challenge is to be a member of the top seven peer groups by points.” Qiv answered. “Following which, a test of strength, a test of knowledge, and a test of magical prowess will be required.”
+
+“These tests differ from year to year, but it is the final test, the Quest for the Sword, which remains relatively similar year after year.” Auris continued, jockeying the mantle of answering from Qiv. “While the specifics change, the premise remains bound to the original myth surrounding the Academy’s founding, a tale of a wizened monarch being chosen by the enlightened waterfolk of Lake Telliad; a test conducted by His Eternal Majesty’s far-reaching sight and will. This monarch who was drawn to a vision of this artifact, suffered hardship after hardship before being bestowed this marker of leadership at the hands of this venerable waterfolk — an artifact which he would later wield to aid His Eternal Majesty in his ultimate quest to establish Status Eternia.”
+
+That rising tone of voice, coupled with his increasingly manic gesticulations, worried me greatly.
+
+But it wasn’t out of fear of action or violence.
+
+No.
+
+It was fear of being trapped in another unskippable dialogue screen.
+
+And whilst I hated to admit that we had anything in common, it took one blabbermouth to understand when another blabbermouth was about to go all in on a particular subject of their fixation.
+
+This was one of those moments.
+
+“Riiight.” I nodded warily. “Thanks for bringing me up to speed on this whole… campaign you’ve got going on. But if you don’t mind, I do have places to be, people to see, and sooooo I think I’ll be leaving now.” I offered, before making a point to crane my head toward both directions. “Erm, I don’t suppose one of you guys could like… back up or something?”
+
+“Backing up, would be akin to yielding, newrealmer.” Auris responded indignantly, prompting me to let out a sigh, before taking a few purposeful steps back.
+
+“Fine, I’ll just make my own way out. Gosh… why do you always insist on making everything so fricking complicated…” I responded through a half-mumble, turning to the EVI with a single, simple order.
+
+“EVI, sports mode. Leapfrog.”
+
+[...]
+
+“EVI, leapfrog.”
+
+[...]
+
+“Acknowledged. Activating sports mode, custom preset: LEAPFROG.”
+
+With a sudden limberness felt throughout my body, and feeling as if I’d suddenly been imbued with some temporary DEX increase spell, I knelt down at the EVI’s virtual starting line; my eyes continuously trained on both the highlighted ‘track’ in front of me and Auris’ bewildered expression.
+
+“Go.”
+
+I sprinted forwards without warning, making a mad dash seemingly right towards Auris’ float, before at the very last minute, leaping over it in a single, pointed, jump.
+
+The quadruple-volume ceilings the Academy was so fond of using finally proved to be practical this time around, as it gave me more than ample airspace to make the leap up and over Auris’ wedding-cake of a campaign float.
+
+I couldn’t help but to let out a wide grin as all eyes were once more on me and my little stunt, and as Auris’ zealous fervor wavered into momentary dread upon seeing me outright lunging towards him, only to miss him by just a few inches.
+
+“Good luck on the whole class sovereign thing, guys!” I shouted back for good measure, giving the bewildered crowd a solid wave.
+
+“This isn’t over, newrealmer!” I could hear Ladona screeching in Auris’ fear-stricken place, as I went about my merry way down the corner… with Etholin still in tow.
+
+…
+
+The poor thing was practically shaking now, even as I set him down as soon as we were out of earshot. “Sorry about that little stunt, Etholin.” I offered with a nervous chuckle, reaching for the back of my neck in the process.
+
+“I-it… it is… quite alright, Cadet Emma Booker.” He offered meekly, and through a nervous chattering of his teeth. “That… was… quite the feat of… strength.”
+
+“Heh, it’s nothing really.” I responded awkwardly. “Let’s just continue where we left off, shall we?”
+
+The ferret nodded, once more leading the way as he slowly, but surely, transitioned back to his prior gait and posture.
+
+“So, yeah, I’d be more than happy to help you out with PE and all that. School stuff is the same in every realm, I imagine. It’s a constant fight until graduation, so why not make that fight easier by lessening the burden amongst friends?” I continued, the mingling of my diplomatic and genuine side coming through just like it did with the gang.
+
+“I-indeed, Cadet Emma Booker.” Etholin nodded. “I’d like that, very much. A-and as stated previously, this request is not a blanket declaration. The terms of our… mutual aid, can very much be enacted as per a case-by-case basis.”
+
+“So not a wholesale mutual-defense pact, but more so a friendly memorandum of understanding on the subject of mutual cooperation, subject to whatever the issue is on hand.” I clarified.
+
+“Y-yes, in a manner of speaking.” Etholin acknowledged, his brow perking upwards with interest. “Considering this is the start of our working relationship, I believe it is prudent to set boundaries, so as to help establish the limits of our respective investments in either party.” The ferret took a moment to pause, before correcting himself promptly. “I do apologize i-if that is a bit too forward, Cadet Emma Booker. I will understand if you take offense to the cold and callous nature of—”
+
+“It’s alright, Etholin.” I attempted to reassure him. “If anything, I appreciate the upfrontness. It’s not just good business, but also solid diplomacy-building; not mincing your words behind empty platitudes and such.”
+
+The ferret nodded in understanding, a confidence which burned bright in his eyes, giving me a surge of confidence in this whole diplomatic endeavor, as the first seeds of relations beyond the confines of my peer group seemed to have just been planted.
+
+However, just before we arrived at the intersection of dynamically-moving stairs, another thought quickly entered my head. As I realized I needed to broach this now, before we parted ways.
+
+“Hey Etholin, there’s actually something I’ve been meaning to ask you since the commoner’s district.” I began, garnering a cock of the ferret’s head.
+
+“Oh?”
+
+“Well, first off, I was going to ask you exactly how and why you’re able to speak ‘commoner Nexian’ dialects… but I think your involvement in trade and commerce sorta makes that point self-explanatory.”
+
+Etholin nodded in acknowledgement at that, before gesturing for me to continue.
+
+“Right, so. Onto my main point then. I don’t imagine many students have much of a reason to leave the ambassadorial district, so I’m curious as to what exactly you were doing out there?” I asked plainly.
+
+“Ah! A very astute observation, Cadet Emma Booker!” Etholin perked up. “I was merely doing my rounds, visiting those under my patronage and sponsorship, as is tradition for Rontalisrealm merchant noblemen upon arrival at any foreign port! Such things are typically reserved for my bannermen, but given the exclusivity of Nexian visitation, it is typically expected for the issuer of charters and licenses themselves to make personal visits to their wards.”
+
+“Huh.” I acknowledged with a nod. “So, from what I’m understanding, are you saying that the guy’s ability to conduct business is entirely dependent on your official sponsorship? Like, as a license issuer or something?”
+
+“That is correct.” Etholin nodded. “Commoners, unless under some form of a generational charter, must first acquire licenses or sponsorships from noble houses in order to conduct business or practice a certain trade. Whilst the details of this vary, my family has been well known to be very generous with our sponsorships.”
+
+“Hence why you’re known as a merchant Lord?” I clarified, causing the ferret’s ears to dip somewhat. “Sorry if that was offensive or anything, Etholin, I was just—”
+
+“No, no! You… you are well within your rights to ask such questions. You are entirely alien to our ways after all.”
+
+“Again, I apologize if that was at all a faux pas. You don’t need to answer—”
+
+“The answer is, yes, Cadet Emma Booker. There is… something of a taboo when it comes to the generous issuance of licenses and sponsorships to commoners. Generally speaking, there exists an unspoken ratio as to what’s considered acceptable rates of issuance. A ratio which is determined by a variety of factors. The simplest being the ratio between the amount of land the issuing noble house possesses, and the number of sponsorships issued at any given time.”
+
+“I’m imagining your house has a lot of licenses issued then.” I offered.
+
+“In a manner of speaking, yes.” Etholin affirmed, but then quickly clarified. “We are within what is considered the tail-end of the acceptable ratio. However, the issue arises in the diversity of our sponsorships, which most may see as nonexistent. This is because most of our sponsorships trend towards the single-generation issuance of merchant licenses, rather than the patronage of trades such as those of the Artisan charters, Scribes, non-magical Healers, Seafarers, and so on and so forth.”
+
+I couldn’t help but to remain entirely transfixed on this bit of the world’s lore, as opposed to whatever Auris and Qiv were doing.
+
+“This is all so very fascinating, Etholin.” I expressed with genuine delight, garnering a cock of Etholin’s head, and a perplexed expression bordering on confused relief. “There’s definitely a lot to be said about trade houses. In fact, some of the most powerful noble houses in our history were the more trade-focused houses. So I definitely see the wisdom in going down this route.”
+
+The ferret’s eyes widened even further, his lips parting open as if he was taken by complete surprise.
+
+“I… This is… Thank you, Cadet Emma Booker.” The ferret took a moment to dip his head towards me. “Suffice it to say, it is… exceedingly rare to encounter those who consider my house’s practices to be anything but unsavory and undignified.”
+
+“I’m not saying that trade itself is inherently unproblematic and without its own unique brand of issues, mind you. But what I am saying is that giving commoners under your… care, the right to empower themselves like this, is certainly more noble in my book than simply keeping them from their aspirations.”
+
+The ferret nodded deeply once more, as a smile formed across his face. “I will take that as an… unusual compliment then. Thank you.”
+
+There was a genuine sense of giddiness that remained pervasive throughout his voice now, as the undercurrents of skittishness was punctuated by an overall renewed sense of pride. One that seemed otherwise nonexistent whenever he was in the presence of other nobles.
+
+“Don’t mention it. I just say things as I see them, Etholin. Which… given the time, probably means I should be saying goodbye for now.” I responded, segueing into my departure from our little back and forths, as the Rontalisrealmer began walking off… one massive staircase at a time.
+
+=====
+
+The Transgracian Academy for the Magical Arts. Healing Wing. Local Time: 2055 Hours.
 
 Emma
 
-It shouldn’t have surprised me that our first major interaction in town had resulted in a standoff.
+I wasted no time in storming the grand lobby of the healing wing.
 
-Though what did pleasantly surprise me was that unlike most of my confrontations up to this point, the point of contention between us didn’t involve a ticking time bomb nor an existential threat.
+But the same could be said for the rejection I received upon arrival.
 
-It instead involved… bread.
+As a lone, tired-looking hooded elf looked up from the reception desk. Or at least, what I assumed was a reception desk hidden under piles upon piles of books, scrolls, and endless sheets of paperwork.
 
-And pastries too.
+“I am afraid I cannot divulge the names of either student or faculty currently admitted within the in-patient wards of the healing wing.” The sullen, sleep-deprived looking elf apprentice spoke through a malaise that even I felt sorry for.
 
-Exactly ten trays of it to be precise.
+“Well, I’m not exactly looking for a student or faculty member per se, she’s an outsider that I’m pretty sure was admitted here by either Professor Chiska or Professor Vanavan.” I attempted to clarify as politely, but insistently, as I could.
 
-With each tray somehow being comically larger than the next, managing to impress as equally as it did to impede what few pedestrians there were at this hour.
+However, all I received in response was a tired sigh, as the half-lidded eyes of the elf barely even flinched despite the obvious annoyance I was causing her.
 
-“Havenbrockian hospitality, was it, my lord?” The hooded figure spoke, his tone practically oozing a renewed sense of frustration and skepticism, clearly forming as a result of Ilunor’s premature bread stunt.
+“I am afraid I cannot divulge the names of any student, faculty, or others currently admitted within the in-patient wards of the healing wing.” She reiterated, simply resorting to adding a clause to a canned response that I quickly found out to be a pre-written script beneath one of her many stacks of documents.
 
-“Indeed it is.” Thalmin replied sternly, without once shifting his posture as he stood there with one arm still on the door. “Do you wish to reject the offer?” He quickly followed up, doubling down on the bread-ultimatum.
+“Can I just take a look or something? I promise I’ll be out of your hair quick.”
 
-A small pause dominated the air after that point as I held my breath, my eyes gazing up to check my rear-view cameras for any potential crowds that had formed following this sudden buildup in bread-related traffic.
+A pause punctuated that question, as the elf plonked her gloved finger on her pre-written script, before landing on an answer which she read verbatim.
 
-Thankfully, none had formed just yet.
+“I am sorry, but outsiders are not allowed inside past visiting hours. Please try again during visiting hours.” She spoke slowly through a yawn, her consciousness threatening to leave her mortal coil.
 
-Which once again showed that waking up early really did have its benefits.
+Looking around, I knew that forcing or even sneaking my way in probably wasn’t the best way of going about this, given the sheer number of gargoyles present.
 
-“No, my lord. This was just… unexpected is all. Though you must forgive me, as practicality and tradition now stand in the way of the logistics of your kind and generous act of courtesy.” The man spoke cryptically, though it was clear that Thalmin’s refusal to back down, was enough to assuage his skepticisms somewhat. “You may wish to cover your ears for this.” He warned, turning around for a moment, before letting out an ear-splitting whistle.
+So I disengaged for now.
 
-No sooner did that whistle end, did a flurry of footsteps emerge from deep within the building, as a veritable platoon’s worth of haphazardly dressed elves, satyrs, serpent-people, and kobolds all came barreling out the door, standing at attention on the wide steps of the guild hall.
+Though it was clear I wasn’t the only one to disengage from this battle.
 
-It was this latter group that reacted the most viscerally to our presence, or more particularly, Ilunor’s.
+PLONK!
 
-However, before the Vunerian could respond or acknowledge them in any way, another amongst their group started to take center stage.
+…
 
-One of them, a particularly scrawny-looking elf, took a few tentative steps up in front of the rank and file group; his head dipping mechanically before speaking. “What is your command, guild-commander, sir?”
+My rear view cameras confirmed that the elf in question had finally succumbed to the call of slumber, papers now scattering following her unfortunate face-plant; a golem soon arrived to drop a heavy blanket over her now-lifeless form.
 
-“You lot finished training yet?” The hooded figure replied sternly, his tone of voice, and indeed his accent shifting drastically to something resembling a tired and nonplussed drill sergeant; a stark contrast to the more ‘proper’ voice he was using with us before.
+=====
 
-“Yes sir!” The elf responded, gesturing to the rest of his group, all of whom were attempting to shuffle around what seemed to pass for uniforms; panting up a storm all the while. “Morning cleanup and maintenance work, along with preliminary training, complete sir!”
+Dragon’s Heart Tower. Level 23. Residence 30. Local Time: 2115 Hours.
 
-“Very good.” The guild commander replied with a single nod, before gesturing towards the line of bakers-turned-delivery men. “Bring those gifts inside, and set them in the Great Hall.” He commanded.
+Emma
 
-“Yes, sir!” Came the scrawny elf’s response, as a concerted, albeit somewhat chaotic effort, soon went underway.
+I arrived to find a relatively relaxed atmosphere in the dorm.
 
-Tray after tray were soon handed over to the ragtag group of… what I was starting to assume were trainee adventurers. Though their ages seemed to range wildly, with the oldest vaguely our age, and the youngest of which seemed way too young for a life of adventuring.
+With Thacea silently reading a book, downing cups of tea in the process.
 
-With his attention finally shifting away from the would-be adventurers, the hooded man turned to address us once more. “It is forbidden for any outsiders to enter the adventuring guild without permission. Especially those belonging to another guild or establishment within town.” The man explained.
+Thalmin having had just returned from the gym, his attention now entirely consumed by the small batch of homework I just remembered we were assigned.
 
-“A good of a time as any to make use of squires and apprentices, then.” Thalmin surmised with a gravely huff.
+And finally, Ilunor, busy doing much of the same.
 
-“Indeed it is, your highness.” The man responded with a small dip of his head. “Once again, you must excuse our lack of formality. We certainly were not expecting a visitor this early, let alone royalty and nobility.”
+It was almost a bit of an emotional whiplash to be seeing everyone in full school-mode following the back-to-back adventures.
 
-“Formality is simply another form of discipline, guild-commander.” Thalmin responded in kind, stepping up to the plate with a demeanor I hadn’t seen from him before. His presence, his voice, even his gaze, shifted to a more commanding one. “To be frank, formality — especially of the variety you speak of — is much less impressive when compared to the discipline of a warrior. The latter of which, you seem to have no shortage of.”
+I could almost forgive myself for forgetting we even had grades to worry about sometimes.
 
-This seemed to spark some change in the man, as he let out a gruff chuckle, before placing an arm across his chest and bowing deeply in the process. “You flatter me, Prince Havenbrock.” He began, but just as quickly gestured to the chaotic movements of the struggling group. “However, I truly cannot accept such a compliment, not with any ounce of earnestness at least. Because as you can see with your own two eyes, this lot of would-be apprentices have yet to have proven themselves in any meaningful capacity.”
+Almost, being the operative word here.
 
-“We all must start somewhere, guild-commander. Formality and decorum, swordsmanship and martial skills, all the hallmarks of a warrior or adventurer are learned traits. What cannot be learned or imparted however, is a willing steely spirit — one that seeks discipline and hierarchy. Your lot seems to have that going for them, and for me, that’s enough to warrant one round of flattery.”
+“EVI?”
 
-The hooded man could only nod along as Thalmin spoke, but whilst his features were concealed, his body language more or less gave away much of his opinions on this whole back and forth.
+“Yes, Cadet Booker?”
 
-“Spoken like a true mercenary prince, your highness.” He bowed deeper this time around, a sense of genuine appreciation coming through, just in time for the last of the bread trays to enter through the double-doors. With a cock of his head, momentarily halting the conversation to check up on the gaggle of trainees, he quickly turned to grab his side of the door, preparing to fully open it. “You, and your compatriots, are all welcome here.” The man extended his arm as far as it could go, pushing the door wide open in the process, and granting us a full view of the world within. “Welcome to the Adventurer’s Guild Hall of Elaseer.”
+“Do you think you can do my homework for me?”
 
-Thalmin wasted no time in entering, prompting the rest of us to follow closely in tow into a space that was as grand as it was on the inside, as the outside had led me to believe.
+[...]
 
-Grand pillars of geometrically shaped and carved oak dominated much of what looked to be an open-plan floor space, going up as high as to a second and third floor, both of which seemed to ‘wrap’ around the perimeter of the interior. This heavy usage of wood continued through to the simple wood-paneled walls, and was arguably put to exceptionally tasteful use on the floors. As all manner of hardwood planks ranging from pine to oak, to acacia and birch, covered the floor in a myriad of parquet patterns.
+“Please? It’s mission-sensitive.”
 
-Immediately in front of us was a reception area, complete with sofas, lounge chairs, coffee tables, and all manner of tastefully placed decorations. All of which were more in line with a contemporary brand of posh aesthetics; not the overindulgent gaudy baroque aesthetics of the Academy or even the Versailles-themed bakery.
+“Does the mission operator wish to classify school assignments as [mission sensitive]?”
 
-Immediately behind this reception lounge, was the actual reception desk, similar to what you’d expect to find in hotels and inns, wrapping around a large central pillar. Whilst unstaffed and seemingly empty like most of the room right now, there was no shortage of hints at just how busy this place got at its peak. With inkwells and quills, parchments and documents, all visibly present just behind the counter — as if placed there in anticipation of yet another busy day.
+“Yes. We’re not on Earth, so this doesn’t fall under the VI/AI Academic Misconduct Act okay? Please just dedicate some of your processing power for this; you can allocate the bare minimum if you want to. Just print it out or something when you’re done, I’m sure it’ll be fine.”
 
-Flanking the reception counter at the entrance to the east and west ‘wings’ of the first floor were several large notice boards, some attached directly to the large support pillars, whilst others remained freestanding, set atop of easels and poster-stands.
+[...]
 
-The EVI quickly made short work of the more official looking notices, revealing that most were lists of active adventuring parties, timetables denoting shift rotation and questing availability, as well as public notices for either vacancies, advertisements of hire, and most interestingly of all — a call for intermediately-ranked adventuring parties to take on one of the ‘prospective apprentices’ for ‘field experience’.
+“Acknowledged.”
 
-However, the EVI’s technical hiccups soon reared its ugly head back around upon setting its sights on the less-than-official notices on the various adjacent noticeboards. A quick analysis revealed that these hiccups could simply be attributed to the occasional misspelling, the use of unconventional abbreviations, or even the excessive presence of technical jargon perhaps belonging to the niche field of adventuring.
+“Thanks, EVI.” I beamed back, taking a sigh of relief for actually being able to expedite one of the more laborious tasks here.
 
-Whatever the case was, my attention was quickly overtaken by the trail of trainees rapidly organizing the spoils of Ilunor’s spending spree in the west wing, as the doors to the massive hall remained wide open — revealing a room packed to the brim with long bench-style dining tables that stretched from wall to wall.
+“Homework, I’m guessing?” I asked the gang, who all nodded, save for Thacea.
 
-All manner of linen-lined baskets were set out throughout the tables, the trays of bread emptied into them at an exceptional rate.
+“I’ve already completed my assignments. You may take a look if you wish to, Emma.” Thacea offered candidly.
 
-Judging by the what was visible through the large shield-styled door, the west wing was dominated mostly by a communal dining area, complete with tapestries depicting grand battles lining every available wall, and suits of armor along with stereotypically shiny weapons hanging behind glass cases in between whatever spaces remained between the tapestries.
+“Nah, it’s fine, I’m finishing mine right now actually.” I beamed out brightly, tapping my helmet in the process, preemptively addressing the questions which were undoubtedly coming my way. “In here, just processing it all as we speak.”
 
-This room lacked the same warmth and luxury exuded by the reception area, as wood seemed to be used sparingly here, instead replaced by bog-standard cobblestone, brick, mortar, and harsher materials. Though, to their credit, most of the less tasteful construction was hidden quite effectively, giving off less of a medieval-utilitarian aesthetic, and more the vibe of a medieval monarch’s dining hall.
+“Right.” Ilunor responded, half-unamused, half-tired from my shenanigans. “I am not even going to dignify that with a response.” He sighed, choosing to disengage… which was probably the best thing he could do tonight.
 
-“I will be back shortly, my lords and ladies.” The hooded man announced, snapping me right out of my reverie. “I must inform the guild master of your arrival, and prepare them for your conference.”
+Getting into the existence of the EVI, was a whole can of worms unto itself.
 
-“I hope this doesn’t take too long, guild-commander.” Thalmin responded calmly.
+“Fair enough. In any case, I had a question I wanted to ask you guys about. Several, actually.” I began as I sat down on the couch.
 
-“I can assure that this will take no longer than a foam’s collapse, your highness.” The man bowed deeply, garnering a nod from Thalmin, before he promptly ran off up the stairs.
+“Go ahead, Emma?” Thacea acknowledged, choosing to sit opposite of me.
 
-It was then that I started to notice something off about his legs, as a flicker of mana radiation coincided with a sudden, but recorded, instance of some disguise magic at play.
+“The search for Rila is currently hitting a bit of a roadblock, so I’ve come up with two paths I’d like to run by you.”
 
-His legs were decidedly digitigrade, but then again, I wasn’t yet ready to openly question it.
+…
 
-What I would question, however, was that indecipherable idiom being used. “Thalmin, what exactly is a foam’s collapse?” I asked bluntly.
+10 Minutes Later
 
-“It’s a commoner’s saying. The man’s clearly a lowborn.” Ilunor responded haughtily, lazing against the couch with an increasing display of gross superiority.
+…
 
-Thalmin, predictably, growled at this, before turning to me. “It’s a saying amongst warriors, Emma. It refers to the time it takes for a frothy mug of ale to go flat, or more specifically, the time it takes for a beer head to dissipate after standing for too long on the counter.”
+“Correction; you have one path ahead of you, Emma.” Thacea answered definitively, leaving no room for argument or discourse.
 
-“Huh.” I nodded once, as I quickly turned to the EVI. “Are you logging this, EVI?”
+“I’m assuming it’s not the idea where we attach Rila’s bracelet to a drone, then having it circle around the medical wing to see if it’d activate?”
 
-“Affirmative. New esoteric colloquialism added to the [Working Language Database].”
+“No, Emma.” Thacea doubled-down, in a way that only a stern partner could. With a sigh and a firm grip of her forehead, she quickly continued. “It is your second idea that I am more comfortable with. Though this begs the distressing question as to exactly how and why the more sane idea was your second thought…”
 
-“Which I guess implies he won’t take long?” I clarified.
+“Heh… I guess I’m just a bit impatient is all.” I responded, awkwardly rubbing the back of my helmet in the process. “I guess we’ll go with the more straightforward option then. We’ll just ask Chiska about the whole Rila thing whenever she’s free, and then push for a visit. It… does seem like the underwhelming way of going about it though…”
 
-“Precisely, Emma.” Thalmin nodded.
+“Yes, Emma.” Thacea acknowledged with an exasperated breath. “‘Underwhelming’ often is the best way of going about it. Following which, should the results of this venture prove questionable, we will then discuss the possibility of escalation.”
 
-Idle conversation quickly descended among the rest of the gang as I simply took in the sights and sounds, my eyes transfixed on the diligent and well-oiled machine of the trainees.
+“Yeah, you’re right. It’s the same idea with just asking for the book from Larial instead of stealing it, I guess.” I nodded in understanding, Thacea taking a moment to exhale a sigh of relief in tempering my more flighty ideas.
 
-I was so enthralled by the atmosphere of this place, that I almost didn’t notice one of the trainees setting up a small tea set in front of us, as a five-tier tray was quickly set up, half of which were filled by the same pastries we brought in.
+“You mentioned you had more topics to discuss, Emma?” Thacea questioned, following the downing of an entire cup of tea.
 
-“Ugh.” Ilunor announced, garnering a quick snap of the trainee’s head, if only for the satyr to yelp meekly upon temporarily locking eyes with the Vunerian. “Regifting a gift is already an act of poor taste. To actually serve your guests their own gifts… is another thing entirely.” The blue thing spoke to no one in particular.
+“Yeah, actually, two things. The first being the whole ‘Class Sovereign’ situation.”
 
-Though that little tirade was promptly interrupted by a sharp gurgling sound.
+“Ah… I assume the would-be crown-aspirers are finally out on their floats?” Ilunor chimed in with a dismissive puff.
 
-One that unmistakably came from someone’s stomach.
+“Yeah, actually — Qiv and Auris. They explained the whole thing to me already, but I was wondering—”
 
-And given that none of us were hungry, the culprit of this was obvious enough, as I turned to face the trainee — a satyr that looked just about our age. The man was dressed in a simple set of clothes, consisting of a matching brown tunic and pants, which I assume was his PT uniform. Though not disheveled by any means, and clearly not starving, I couldn’t help but to sympathize with him.
+“Oh please don’t tell me you’ve gotten yourself into another quagmire, Emma…” Ilunor muttered out with both hands covering his face, muffling his voice in the process.
 
-So just as he’d finished setting up, I quickly called out for him. “Hey.” I began, reaching for one of the plates in the process. “You hungry?”
+“Erm, no. I kinda just got outta there as soon as I realized what it was all about.”
 
-The trainee’s reaction… was something that I should’ve anticipated. As he turned to face me with a look of disbelief, before evolving into one of worry, as if expecting some sort of a reprimand.
+Ilunor stopped to give me a more relaxed look. “Oh.” He responded, matching Thacea’s sigh of relief.
 
-“I… I’m sorry, my lady?” He stuttered out, nervousness seeping through each and every syllable.
+“If anything, I was wondering since we’re like… what… currently the fifth in terms of points, if any of you were thinking of running for Class Sovereign?”
 
-“It’s a simple question, are you hungry or not? You just got out of morning exercises, right? I don’t imagine you’ve had time to eat.”
+“The thought did cross my mind.” Ilunor acknowledged. “However, following the incident with a certain black-robed professor… any boons which could have been gained from such a coveted title would almost certainly be overshadowed by the consequences of being trapped in close proximity to the black-robed professor’s office.” The Vunerian seethed, his eyes landing on my own. “You can see why that would be less than optimal, considering my experiences, and our current standing?”
 
-“Y-yes, my lady. Y-you’re correct.” He responded simply, bowing deeply between those two simple sentences.
+“Yeah, that makes sense.” I nodded. “That’s… actually very reasonable of you, Ilunor. I’d thought that you’d be chasing after titles like—”
 
-“Then here.” I offered, extending the plate full of baked goods towards him. “Go for it.” I managed out with a smile, or at least, with an intonation that I hoped alluded to the smile beneath my helmet.
+“A climber of the social ladder as I may be, I know how to make informed decisions.” He interjected.
 
-It was clear that this action garnered the attention of not only the rest of the gang, but also the other trainees who were watching this scene unfold.
+“But only after you’ve had your eyes opened by a near-death experience.” Thalmin chimed in, garnering a glare from the Vunerian. “I’m simply saying that life can be a harsh teacher. Being close to death, means you have a renewed appreciation for life and caution.”
 
-“I… I cannot fathom taking—”
+“Ugh, I’ve had enough of your Havenbrockian platitudes for one day, Prince Thalmin.” Ilunor rebutted, garnering a shrug from Thalmin as he just as quickly dropped back down into his homework.
 
-“Taking from guests? Well, just look at it this way. I’m not hungry anyways, so why let good food go to waste?” I countered, standing up, and more or less shoving the plate into the satyr’s hands.
+“You know, I think you made the right call here, Ilunor. A silly quest where you go around trying to find a sword is no basis for a system of governance, not even a student government. Strange fish people lying in lakes, distributing swords, is no basis for a system of government. I mean, if I went around saying I was emperor of the halls just because some slimy frog creature lobbed a trident at me, everyone would call me crazy! Supreme executive power, derived from some… farcical aquatic ceremony is just ridiculous!”
 
-A few moments of quiet contemplation followed as I could just about see the loading screen beach ball of death spinning within his dilated pupils.
+Silence threatened to creep in following that, but Thacea was quick to make short work of any lulls in the conversation.
 
-With a gasp, and a deep bow, he relented. “T-thank you, my lady!” He stuttered out, as he made his way out of the reception area and back into the dining hall.
+“And your next point, Emma?”
+This group was a tough crowd sometimes.
 
-Chatter quickly erupted amongst the trainees, but before anything could be discerned, the hooded guild-commander quickly arrived back on scene.
+“Oh, well, this is actually kind of a big one. And I’m actually curious why you guys seem to be rather lax about this whole thing.” I began, garnering a cock of Thacea’s head. “It’s about tomorrow’s house choosing ceremony. I’m just wondering what it actually entails, and why you guys seem so calm about it.”
 
-“My sincerest apologies for having kept you waiting my lords and ladies.” He bowed deeply. “Please, the guild master is ready to receive you.”
+That question seemed to snap something in Ilunor’s mind, as he got up from his pile of homework, and walked purposefully right towards me. “Isn’t it obvious, earthrealmer? It is because we have given up.”
 
-With a wordless nod from Thalmin, and nary an acknowledgement from either Thacea or Ilunor, we left the reception, ascending the grand staircases, until we reached what was undeniably an elevator.
+My brow quickly perked up at that, as I turned to both Thacea and Thalmin with a confused glance, obscured by the helmet. “What?”
 
-This was life-saving for Ilunor, who had already begun to show signs of strain as we’d ascended that first floor.
+“If it needs to be spelled out, the house choosing ceremony is an explicitly magic-oriented affair. The moment you sat at our table, joining our peer group, was the moment where we all understood we would have practically no chance at accruing the points necessary to get first-pick of our desired house. Moreover, the moment you proved yourself to be entirely manaless, was the moment where any lingering hope completely died.” Ilunor surmised with a frustrated zeal.
 
-The rest of the trip was made in silence, as after navigating wood-paneled after wood-paneled corridor, passing by even more tapestries and artifacts encased in glass, we’d finally reached a hallway leading to a single door.
+“Is… is this true, guys?” I turned to face both Thacea and Thalmin, the latter seemed to be putting up a positive face, hiding the emotions stirring within.
 
-It was there that the guild commander simply stood back, allowing us to enter at our own pace.
+“As much as it pains me to acknowledge that something this… superficial was another cause of my early grievances against you, Emma — I must stand by the truth and admit that, yes, this was the case. However, looking back at the circumstances now… that sense of frustration seems so far away and childish in retrospect. The houses seem so small now. Especially compared to what we’ve gone through, and what we can build together in spite of Nexian conventions.”
 
-Thalmin once more took the lead, knocking hard on the door, and prompting whoever was inside to respond muffledly. “Enter!”
+Thalmin’s reply felt… so unabashedly genuine, so much so that I didn’t know how to process this sudden influx of thoughts and feelings.
 
-With a single crank of the door handle, we arrived into an office that for once didn’t warp the fabric of space itself.
+“Actually, Ilunor, I had no such drive for the House Choosing ceremony from the onset, given my tainted status.” Thacea shrugged. “I understood, from the moment I entered that portal, that the house choosing ceremony would be yet another event to be tolerated.”
 
-Indeed, the office’s design philosophy seemed to clash harshly with that of other Nexian seats of authority I’d seen thus far. Because as opposed to Mal’tory and the Dean’s obsession on monumentality and grandeur, this office seemed to embrace the same sort of subdued luxury as seen below in the reception area. As the warmth of the wood, and the lived-in feel of personal clutter ironically made this space feel more inherently magical than the cold authority of both of the former’s offices.
+“But I had such hopes.” Ilunor countered, though his tone of voice was rife with a sense of defeatism. “That is your answer, earthrealmer. The house choosing ceremony is simply a battle we cannot fight.”
 
-Though to be fair, that was probably what they were going for.
+A silence finally descended on our group, as I was left to ponder everything.
 
-Aesthetics aside, it was clear that the ceilings in this space were heightened not merely for the aura of grandeur, but for utility’s purposes too.
+“So… what exactly is expected from this whole ‘house choosing’ ceremony thing? Like, will there be challenges like during PE, or…”
 
-This was because the being that stood before us, clad in plate armor sans their helmet, took up about a good twelve feet worth of height.
+“It’s something of a show of magical prowess, Emma.” Thacea explained. “With limited guidelines as to how this is done, simply that all displays must be conducted exclusively through magical processes.”
 
-However, this would only be the beginning of the… peculiarities of the guild master.
+“So… a magical talent show?”
 
-“Ah! My fellows, please, allow me to make myself more presentable.” The being spoke with an almost otherworldly voice, something that felt artificial, strained, and forced.
+“That’s a reductive way to put it.” Ilunor acknowledged through a soot-filled puff.
 
-However, instead of putting on his helmet as I’d expected him to, he began doing the complete opposite.
+“Please understand that this isn’t at all a serious matter, Emma.” Thacea clarified with a smile.
 
-CLICK!
+“It’s ultimately another mechanism of the Academy’s control.” Thalmin acknowledged with a nod. “And given everything we’ve been through, it’s just not really worth the trouble.”
 
-As he unlatched the straps of his chestplate—
+The next several minutes would be spent wracking my head around the whole situation.
 
-THUNK**!**
+Whilst I understood that everyone had more or less moved past what was effectively a tool of Nexian social conventions, I still couldn’t help but to feel just a little bit responsible for potentially ruining what could have at least been a fun event for the gang — an opportunity for them to flex their magical skills.
 
-—and allowed it to fall to the ground without a care in the world.
+I wanted to at least give them a chance to flex in front of the student body.
 
-“Erm, we can return in a few moments if you’d like some time to—”
+[INTERNAL PROCESS COMPLETED: HOMEWORK.]
 
-CLICK!
+“Note to Operator: Bare minimum memory allocation was used for this process. Human review is recommended.”
 
-The porcelain-skinned humanoid continued unabated, his mechanically-jointed hands now reaching for his armored pants as they too—
+It was then that a lightbulb moment hit me, and my eyes lit up like fireworks.
 
-THUNK**!**
+This event didn’t need to involve my usual tricks.
 
-—were removed in a single swift motion.
+It didn’t need me to overcome or compensate for my inability to practice magic.
 
-“AGHHHH!” Ilunor yelped out, shielding his eyes first.
+Drones, fireworks, light shows — all ‘disqualifiers’ — just weren’t needed in this event.
 
-So rapid-paced were the developments that even Thacea was left stunned, and Thalmin was left speechless.
+This was their show.
 
-This inexplicable turn of events eventually reached the height of its bizarreness the moment the guild master abruptly turned to face us however, as all of us rapidly went to shield our eyes… only to be met with what seemed to be a literal mannequin.
+I just needed to do the bare minimum.
 
-An oversized mannequin to be precise, complete with ball and socket joints, where traditional joints should have been; along with a painted-on face that felt more creepy than it did realistic.
+And there was at least one magic trick I could do whilst adding something to the score, without detracting from the gang’s performance.
 
-“Whilst not required by law, I do wish to make it clear who you are speaking to.” The being continued, their ‘features’ completely motionless, as both of their hands reached up to their head…
-
-POP!
-
-… removing it entirely.
-
-“I am Piamon the Dragon-slayer. Or, if you would prefer a more noble title, I am Third-Holder Piamon Pichun of the Pichun family, tenth of my name, and thirtieth in line for the Midland County of Lorlei. Current guild master of the Elaseer Adventuring Guild.” The… being… spoke in rapid succession, bowing deeply in the process, using their ‘head’ in the same way someone removing their hat would in an official greeting.
-
-However, no sooner than my confusions had reached their precipice did they clear up, as a stream of iridescent light blue goop started to emerge from the mannequin’s neck-hole, forming into a ball, before dropping down with a solid plop on the desk in front of us.
-
-“How may I be of service?” The… slime concluded.
-
-That latent reflexive part of me flinched hard, as it took me a great deal of self control to not think of it as… well… another similarly slimy and gelatinous creature.
-
-“You’re… a slime?” I managed out, attempting to assuage my anxieties, as well as to address my burning curiosities.
-
-“A greater slime, yes.” The slime ‘nodded’ — an act that amounted to its ‘face’ dipping slightly ‘forwards’. A face that consisted of two thin gray lines for eyes, perpetually locked in an expressionless neutrality. “I assume you’re the newrealmer of the hour?”
-
-“Indeed I am.” I replied with a nod of my own. “As such, I do apologize if that question was somewhat too blunt, or was in any way presumptuous.” I offered politely.
-
-“No offense was taken, newrealmer. Ignorance is nothing to be sorry for.” The slime offered tactfully. “If anything, I would prefer that you ask any and all questions pertaining to my kind and my culture here, rather than receiving filtered and undoubtedly biased commentary from others.”
-
-“Right.” I nodded, before turning to Thalmin who was clearly waiting for this back and forth to be over with.
-
-However, once the shock of our introduction, and the relief from having the null question had passed, a new feeling quickly came to take its place.
-
-One which was born out of the slime’s own self-admitted desire to set the record straight.
-
-This was now a chance to interact with a truly alien being outside of the Academy’s walls; first contact without the overbearing flavor of the Academy’s meddling.
-
-Questions began to flood my brain, as I could feel the second-hand excitement of the entirety of the sociology department’s staff flowing through my veins.
-
-But while I had an infinite number of questions to ask, I still had a finite amount of time to work with.
-
-And so, I had to choose my questions carefully.
-
-Addressing the immediate circumstances was always a foolproof start to these sorts of things. I thought to myself.
-
-Though questions like ‘what’s the difference between a greater and lesser slime’, whilst compelling, were probably best left for a trip to an encyclopedia.
-
-Primary evidence was best collected on topics of first-hand accounts on culture after all.
-
-Of which I had the perfect question for.
-
-“You mentioned that revealing yourself is not required by law.” I began, much to Ilunor’s annoyance. “And you seem to have a very, very well crafted mannequin form at your disposal. I’m assuming that your primary slime form is something that isn’t very well received by socio-cultural norms? Or is your appearance somehow regulated by Nexian law?”
-
-These questions seemed to elicit some form of a reaction from the slime, as its ‘skin’ jiggled with a level of what I assumed was intrigue.
-
-“A perceptive newrealmer, I see.” The guildmaster spoke, before letting out a slight chuckle. “Indeed, I was referencing a few more well known limitations placed upon my kind by the likes of Nexian legal conventions.” They began, before moving off of the table, and ‘growing’ to meet my height. It took a solid half a minute, but standing before me, was a surprisingly realistic replica of my armor.
-
-This… definitely started throwing me off, alarm bells practically blaring now, as the limits of my self-control were once more put to the test.
-
-“The divulgence of my species, and indeed, the declaration of myself as a greater slime is only necessary if I were to publicly use my natural shapeshifting abilities.” They reasoned, even going so far as to mimic my voice, although they did so very poorly. Indeed, the more I looked, the more certain details of its mimicry were clearly flawed. From the off-blue color of the armor, to the mess of the UN emblem on the chestplate, everything just looked off after a few good hard seconds of scrutiny. “This is understandable, of course. As no one wishes to have their identity stolen. The result of this is the registration act, a means of registering known and unique forms into the crown registry, tying it to a greater slime’s identity, before making such a thing known to wherever a greater slime may reside. However, my kind have since eschewed frivolous and wanton shapeshifting, instead opting for the creation of static-forms, or mannequins as most elves call them.” The slime continued, quickly ‘melting’ away, before jumping next to the fallen mannequin heap, pointing at it for added effect.
-
-“Greater slimes are in fact quite well known and well-regarded for this particular artform, Emma.” Thacea quickly added. “Indeed, you will find no other culture so well versed in the art of cosmetics; particularly in the crafting of mannequins.”
-
-“You flatter us, my lady.” The slime offered with a deep nod. “Moreover, these mannequins are indeed quite useful for those among my kind that lack magical acumen, for they provide a static form that would otherwise be impossible to acquire without the natural gifts of magic.”
-
-“It’s your highness, guildmaster.” Thalmin corrected. “This is Princess, Dilani.” He quickly added, before turning to the rest of us. “And this is Cadet Emma Booker of Earthrealm, along with Lord Ilunor Rularia.”
-
-“Ah, an HRH. Duly noted, mercenary prince.” The slime noted, taking a deep bow towards Thacea and Ilunor, before turning back towards me. “Are there any further inquiries as to my kind, newrealmer?”
-
-“I… think I might save that for another time then, probably after we conclude our business.” I conceded, moreso to Thalmin than the slime.
-
-“Always a pleasure to discuss the truth of my kind. Though I do hope that my personality has not become as stilted as my porcelain exterior might otherwise lead you to think.”
-
-“Not at all, Guildmaster Piamon Pichun. I appreciate your candor.” I dipped my head in acknowledgement.
-
-“Now with all that being said—” Thalmin quickly chimed in. “—I would like to discuss our rather… atypical request.”
-
-The guildmaster quickly returned to his former posture, ‘hopping’ back onto the table, and leaning forwards towards the lupinor. “Yes, mercenary prince?”
-
-“I will be forthright in my request. I wish to issue a closed quest, to Wyvern-class adventurers and above, for the scouting, tracking, and reporting of the whereabouts of the Amethyst dragon.”
-
-The guildmaster’s form jiggled once again in response to that.
-
-“And would that be the very same Amethyst dragon that’s become the talk of the town as of late?” They inquired back.
-
-“Yes.” Thalmin nodded. “Though I do stress, this is purely a scouting and reconnaissance mission, with all hazard pay included, along with a bonus for the quick and prompt delivery of said information.”
-
-“And how much are you offering for this… atypical quest, mercenary prince?”
-
-“Five thousand gold.” Thalmin stated plainly.
-
-Though at this point, it was difficult to really discern a reaction from the slime given their lack of a face.
-
-“Well thank goodness you specified this was merely a scouting mission, otherwise I would’ve denied such a request at such a measly price.” The slime responded, before reaching out a single ‘arm’ to rest its nonexistent ‘chin’ upon. “May I ask why you wish for such a quest?”
-
-“A personal academic matter, guild master.” Thalmin responded bluntly.
-
-“Alright then, shall I send someone to the Academy to verify these claims?” The slime rebutted.
-
-“I’m afraid this form of academics is under a different authority.” I chimed in, pulling out a familiar card that immediately caught the attention of the slime; his whole body jostling uncontrollably in the process.
-
-“Ah. I see.” The slime responded with a sly chuckle. “It’s been a long, long time since I’ve seen one of those.” They managed out through an excited breath. “Alright then… let’s discuss the terms.” 
-"""
+“Actually… I have an idea.” I offered with a wide, mischievous grin. """
 
 import ebooklib
 from ebooklib import epub
