@@ -1,0 +1,57 @@
+name: Build & Deploy Notebook → GitHub Pages
+
+on:
+  push:
+    branches: [main]     # adjust if you use a different default branch
+  workflow_dispatch:     # allows manual runs from the Actions tab
+
+permissions:
+  contents: read         # repo checkout
+  pages: write           # allow deployment
+  id-token: write        # required by deploy-pages
+
+concurrency:             # only one Pages deployment at a time
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥  Check out repo
+        uses: actions/checkout@v4
+
+      - name: 🐍  Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"   # pick any version you like
+
+      - name: 📦  Install Jupyter & nbconvert
+        run: |
+          python -m pip install --upgrade pip
+          pip install jupyter nbconvert
+
+      - name: 📝  Execute & convert notebook
+        run: |
+          mkdir _site                             # output directory for Pages
+          jupyter nbconvert \
+            --to html --execute path/to/notebook.ipynb \
+            --output-dir _site
+
+      - name: 📤  Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: 🚀  Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
