@@ -22,7 +22,7 @@ jobs:
       - name: Execute notebook → HTML
         run: |
           pip install nbconvert jupyterlab
-          jupyter nbconvert --to html --execute analysis.ipynb \
+          jupyter nbconvert --to html --execute analyzer.ipynb \
                             --output out.html \
                             --embed-images          # inline all plots
       - name: Upload report as artifact
