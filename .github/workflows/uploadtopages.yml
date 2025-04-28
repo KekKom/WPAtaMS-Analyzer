@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir _site                             # output directory for Pages
           jupyter nbconvert \
-            --to html --execute path/to/notebook.ipynb \
+            --to html --execute analyzer.ipynb \
             --output-dir _site
 
       - name: 📤  Upload Pages artifact
