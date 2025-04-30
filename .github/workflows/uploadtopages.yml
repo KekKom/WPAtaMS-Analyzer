@@ -2,56 +2,55 @@ name: Build & Deploy Notebook → GitHub Pages
 
 on:
   push:
-    branches: [main]     # adjust if you use a different default branch
-  workflow_dispatch:     # allows manual runs from the Actions tab
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: read         # repo checkout
-  pages: write           # allow deployment
-  id-token: write        # required by deploy-pages
-
-concurrency:             # only one Pages deployment at a time
-  group: "pages"
-  cancel-in-progress: false
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥  Check out repo
+      - name: 📥 Check out repo
         uses: actions/checkout@v4
 
-      - name: 🐍  Set up Python
+      - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"   # pick any version you like
+          python-version: "3.11"
 
-      - name: 📦  Install Jupyter & nbconvert
+      - name: 📦 Install Jupyter & nbconvert
         run: |
           python -m pip install --upgrade pip
           pip install jupyter nbconvert
 
-      - name: 📝  Execute & convert notebook
+      - name: 📝 Convert analyzer.ipynb → index.html
         run: |
-          mkdir _site                             # output directory for Pages
+          mkdir -p _site
           jupyter nbconvert \
             --to html --execute analyzer.ipynb \
+            --output index.html \
             --output-dir _site
 
-      - name: 📤  Upload Pages artifact
+      - name: 🗂️ List contents of _site
+        run: ls -R _site
+
+      - name: 📤 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
+          artifact_name: github-pages
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
-      - name: 🚀  Deploy to GitHub Pages
-        id: deploy
+      - name: 🚀 Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
