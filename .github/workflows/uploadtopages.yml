@@ -1,0 +1,56 @@
+name: Build & Deploy Notebook → GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Check out repo
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 📦 Install Jupyter & nbconvert
+        run: |
+          python -m pip install --upgrade pip
+          pip install jupyter nbconvert
+
+      - name: 📝 Convert analyzer.ipynb → index.html
+        run: |
+          mkdir -p _site
+          jupyter nbconvert \
+            --to html --execute analyzer.ipynb \
+            --output index.html \
+            --output-dir _site
+
+      - name: 🗂️ List contents of _site
+        run: ls -R _site
+
+      - name: 📤 Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+          artifact_name: github-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
