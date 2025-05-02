@@ -1,14 +1,10 @@
-name: weekly-analysis-to-discord
+name: Build & Deploy Notebook → GitHub Pages
 
 on:
   push:
-    # Rebuild & deploy whenever you update the notebook or this workflow
-    paths:
-      - 'analyzer.ipynb'
-      - '.github/workflows/weekly-analysis-to-discord.yml'
+    branches: [main]
   workflow_dispatch:
 
-# Grant required scopes (contents for checkout, pages for deploy, id-token for OIDC) to all jobs
 permissions:
   contents: read
   pages: write
@@ -19,57 +15,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Check out repository
-        uses: actions/checkout@v4.2.2
+      - name: 📥 Check out repo
+        uses: actions/checkout@v4
 
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.11"
 
       - name: 📦 Install Jupyter & nbconvert
         run: |
           python -m pip install --upgrade pip
           pip install jupyter nbconvert
 
-      - name: 📝 Execute notebook & export to Markdown
+      - name: 📝 Convert analyzer.ipynb → index.html
         run: |
-          mkdir -p tmp
+          mkdir -p _site
           jupyter nbconvert \
-            --to markdown --execute analyzer.ipynb \
-            --output tmp/md-embed --embed-images
+            --to html --execute analyzer.ipynb \
+            --output index.html \
+            --output-dir _site
 
-      - name: 📂 Prepare Pages content
-        run: |
-          mkdir -p pages_root
-          cp -R tmp pages_root/
+      - name: 🗂️ List contents of _site
+        run: ls -R _site
 
       - name: 📤 Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages_root
+          path: _site
           artifact_name: github-pages
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    # No permissions block here—will inherit the workflow-level scopes,
-    # including id-token: write for OIDC, and pages: write for GitHub Pages.
 
     steps:
       - name: 🚀 Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages
-
-      - name: 🔔 Notify Discord
-        env:
-          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
-          OWNER:        ${{ github.repository_owner }}
-          REPO:         ${{ github.event.repository.name }}
-        run: |
-          PAGES_URL="https://${OWNER}.github.io/${REPO}/tmp/md-embed_files/tmp"
-          FIRST_IMG=$(ls tmp/md-embed_files/tmp | head -n1)
-          curl -H "Content-Type: application/json" \
-               -d "{\"content\": \"${PAGES_URL}/${FIRST_IMG}\"}" \
-               "${WEBHOOK_URL}"
