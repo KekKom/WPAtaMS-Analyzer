@@ -1,11 +1,11 @@
 name: weekly-analysis-to-discord
+
 on:
   push:
-    # run when you update your notebook, your dependencies, or this workflow
     paths:
       - 'analyzer.ipynb'
-      - 'requirements.txt'
-      - '.github/workflows/deploy-images.yml'
+      - '.github/workflows/weekly-analysis-to-discord.yml'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -19,17 +19,13 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Install Jupyter & nbconvert
         run: |
           pip install --upgrade pip
           pip install jupyter nbconvert
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
 
       - name: Execute notebook & export
         run: |
-          # create tmp/ on the fly
           mkdir -p tmp
           jupyter nbconvert --to markdown --execute analyzer.ipynb \
             --output tmp/md-embed --embed-images
