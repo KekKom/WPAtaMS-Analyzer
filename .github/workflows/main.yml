@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install nbconvert jupyterlab
           mkdir tmp
-          jupyter nbconvert --to md --execute analyzer.ipynb \
+          jupyter nbconvert --to markdown --execute analyzer.ipynb \
                             --output tmp/out \
                             --embed-images          # inline all plots
       - name: Upload report as artifact
