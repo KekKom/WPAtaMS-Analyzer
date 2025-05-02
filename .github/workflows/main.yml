@@ -1,5 +1,4 @@
-name: Build & Deploy Notebook Images
-
+name: weekly-analysis-to-discord
 on:
   push:
     # run when you update your notebook, your dependencies, or this workflow
