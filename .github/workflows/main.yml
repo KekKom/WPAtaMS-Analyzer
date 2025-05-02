@@ -1,52 +1,61 @@
-# .github/workflows/weekly-analysis.yml
-name: weekly-analysis-to-discord
+name: Build & Deploy Notebook Images
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    # run when you update your notebook, your dependencies, or this workflow
+    paths:
+      - 'analyzer.ipynb'
+      - 'requirements.txt'
+      - '.github/workflows/deploy-images.yml'
 
 jobs:
-# ──────────────────────────────────────────────────────────
-# 1) BUILD the notebook, create out.html, upload as artifact
-# ──────────────────────────────────────────────────────────
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-      - name: Execute notebook → MD
+      - name: Install dependencies
         run: |
-          pip install nbconvert jupyterlab
-          mkdir tmp
+          pip install --upgrade pip
+          pip install jupyter nbconvert
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Execute notebook & export
+        run: |
+          # create tmp/ on the fly
+          mkdir -p tmp
           jupyter nbconvert --to markdown --execute analyzer.ipynb \
-                            --output tmp/out \
-                            --embed-images          # inline all plots
-      - name: Upload report as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: weekly-report              # artifact name
-          path: tmp                   # single file
-# ──────────────────────────────────────────────────────────
-# 2) ANNOUNCE: download artifact and post to Discord
-# ──────────────────────────────────────────────────────────
-  announce:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: weekly-report              # same name as upload
-          path: tmp                          # saves out.html here
+            --output tmp/md-embed --embed-images
 
-      # ── makepost: send the file or inline block ─────────
-      - name: makepost – send to Discord
-        env:
-          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Prepare Pages content
         run: |
-          ls -lh tmp
+          mkdir -p pages_root
+          cp -R tmp pages_root/
+
+      - name: Upload to GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: pages_root
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+
+      - name: Notify Discord
+        env:
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          PAGES_URL="https://${OWNER}.github.io/${REPO}/tmp/md-embed_files/tmp"
+          FIRST_IMG=$(ls tmp/md-embed_files/tmp | head -n1)
+          curl -H "Content-Type: application/json" \
+            -d "{\"content\": \"${PAGES_URL}/${FIRST_IMG}\"}" \
+            "${WEBHOOK_URL}"
