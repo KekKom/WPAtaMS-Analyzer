@@ -19,17 +19,18 @@ jobs:
         uses: actions/setup-python@v5
         with: { python-version: "3.12" }
 
-      - name: Execute notebook → HTML
+      - name: Execute notebook → MD
         run: |
           pip install nbconvert jupyterlab
-          jupyter nbconvert --to html --execute analyzer.ipynb \
-                            --output out.html \
+          mkdir tmp
+          jupyter nbconvert --to md --execute analyzer.ipynb \
+                            --output tmp/out \
                             --embed-images          # inline all plots
       - name: Upload report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: weekly-report              # artifact name
-          path: out.html                   # single file
+          path: tmp                   # single file
 # ──────────────────────────────────────────────────────────
 # 2) ANNOUNCE: download artifact and post to Discord
 # ──────────────────────────────────────────────────────────
@@ -41,28 +42,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: weekly-report              # same name as upload
-          path: .                          # saves out.html here
+          path: tmp                          # saves out.html here
 
       # ── makepost: send the file or inline block ─────────
       - name: makepost – send to Discord
         env:
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          set -euo pipefail
-
-          BODY=$(cat out.html)
-          BLOCK="```html\n${BODY}\n```"
-          LEN=${#BLOCK}
-
-          if [ $LEN -lt 1900 ]; then
-            # ≤ 2 000 chars → send as plain content
-            jq -n --arg c "$BLOCK" '{content:$c}' > /tmp/payload.json
-            curl -s -H "Content-Type: application/json" \
-                 -X POST "$WEBHOOK" \
-                 --data @/tmp/payload.json
-          else
-            # > 2 000 chars → attach the full HTML file
-            curl -s -F "file=@out.html" \
-                 -F 'payload_json={"content":"Weekly time analysis attached as HTML."}' \
-                 "$WEBHOOK"
-          fi
+          ls -lh tmp
