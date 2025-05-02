@@ -2,20 +2,18 @@ name: weekly-analysis-to-discord
 
 on:
   push:
-    # Rebuild & deploy whenever you update the notebook or this workflow
     paths:
       - 'analyzer.ipynb'
       - '.github/workflows/main.yml'
   workflow_dispatch:
 
-# Grant required scopes (contents for checkout, pages for deploy, id-token for OIDC) to all jobs
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -48,14 +46,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: pages_root
-          artifact_name: github-pages
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    # Inherits the workflow-level permissions (pages:write, id-token:write)
-
-    steps:
       - name: 🚀 Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
@@ -67,8 +58,10 @@ jobs:
           OWNER:        ${{ github.repository_owner }}
           REPO:         ${{ github.event.repository.name }}
         run: |
+          # This matches the path you see on the Pages site:
           PAGES_URL="https://${OWNER}.github.io/${REPO}/tmp/md-embed_files/tmp"
-          FIRST_IMG=$(ls tmp/md-embed_files/tmp | head -n1)
+          # Grab the first image filename from our local pages_root
+          FIRST_IMG=$(ls pages_root/tmp/md-embed_files/tmp | head -n1)
           curl -H "Content-Type: application/json" \
                -d "{\"content\": \"${PAGES_URL}/${FIRST_IMG}\"}" \
                "${WEBHOOK_URL}"
