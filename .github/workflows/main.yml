@@ -41,7 +41,7 @@ jobs:
           path: pages_root
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
 
       - name: Notify Discord
         env:
