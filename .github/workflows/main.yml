@@ -25,10 +25,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: 📦 Install Jupyter & nbconvert
+      - name: 📦 Install Jupyter & dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install jupyter nbconvert
+          pip install jupyter nbconvert requests
 
       - name: 📝 Execute notebook & export to Markdown
         run: |
@@ -36,11 +36,6 @@ jobs:
           jupyter nbconvert \
             --to markdown --execute analyzer.ipynb \
             --output tmp/md-embed --embed-images
-      
-      - name: 🐞 Debug
-        run: |
-            find tmp
-
 
       - name: 📂 Prepare Pages content
         run: |
@@ -57,16 +52,50 @@ jobs:
         with:
           artifact_name: github-pages
 
-      - name: 🔔 Notify Discord
+      - name: 🔔 Notify Discord with all images
+        shell: python
         env:
           WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
-          OWNER:        ${{ github.repository_owner }}
-          REPO:         ${{ github.event.repository.name }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
         run: |
-          # This matches the path you see on the Pages site:
-          PAGES_URL="https://${OWNER}.github.io/${REPO}/tmp/md-embed_files/tmp"
-          # Grab the first image filename from our local pages_root
-          FIRST_IMG=$(ls pages_root/tmp/md-embed_files/tmp | head -n1)
-          curl -H "Content-Type: application/json" \
-               -d "{\"content\": \"${PAGES_URL}/${FIRST_IMG}\"}" \
-               "${WEBHOOK_URL}"
+          import os, json, requests
+
+          owner = os.getenv("OWNER")
+          repo = os.getenv("REPO")
+          webhook_url = os.getenv("WEBHOOK_URL")
+          base_url = f"https://{owner}.github.io/{repo}/tmp/md-embed_files/tmp"
+          local_dir = "pages_root/tmp/md-embed_files/tmp"
+
+          if not os.path.isdir(local_dir):
+              raise FileNotFoundError(f"Directory not found: {local_dir}")
+
+          files = sorted(os.listdir(local_dir))
+          image_urls = [f"{base_url}/{f}" for f in files if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.webp'))]
+          content = "\n".join(image_urls) if image_urls else "⚠️ No image files found."
+
+          print("Sending the following content to Discord:\n", content)
+
+          r = requests.post(
+              webhook_url,
+              headers={"Content-Type": "application/json"},
+              data=json.dumps({"content": content})
+          )
+          if r.status_code != 204:
+              raise Exception(f"Discord webhook failed: {r.status_code}, {r.text}")
+
+      - name: 🐞 Debug output
+        run: |
+          echo "::group::📁 tmp contents"
+          find tmp
+          echo "::endgroup::"
+
+          echo "::group::📁 pages_root contents"
+          find pages_root
+          echo "::endgroup::"
+
+          echo "::group::🖼️ Sample image URLs"
+          for f in $(ls pages_root/tmp/md-embed_files/tmp | head -n 5); do
+            echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/tmp/md-embed_files/tmp/$f"
+          done
+          echo "::endgroup::"
