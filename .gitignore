@@ -160,9 +160,14 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
+
 tmp/
+
 .virtual_documents/
+
 .Jupyter/
 
 #custom
 res.csv
+.jupyter/desktop-workspaces/default-37a8.jupyterlab-workspace
+.jupyter/desktop-workspaces/auto-p-7d55.jupyterlab-workspace

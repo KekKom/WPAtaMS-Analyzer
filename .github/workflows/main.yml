@@ -36,6 +36,11 @@ jobs:
           jupyter nbconvert \
             --to markdown --execute analyzer.ipynb \
             --output tmp/md-embed --embed-images
+      
+      - name: Debug
+        run: |
+            ls -lah tmp
+            
 
       - name: 📂 Prepare Pages content
         run: |
