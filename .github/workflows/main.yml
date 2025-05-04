@@ -37,10 +37,10 @@ jobs:
             --to markdown --execute analyzer.ipynb \
             --output tmp/md-embed --embed-images
       
-      - name: Debug
+      - name: 🐞 Debug
         run: |
-            ls -lah tmp
-            
+            find tmp
+
 
       - name: 📂 Prepare Pages content
         run: |
