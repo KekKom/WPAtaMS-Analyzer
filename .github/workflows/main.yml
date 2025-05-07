@@ -32,6 +32,7 @@ jobs:
 
       - name: 📝 Execute notebook & export to Markdown
         run: |
+          rm -rf tmp
           mkdir -p tmp
           jupyter nbconvert \
             --to markdown --execute analyzer.ipynb \
