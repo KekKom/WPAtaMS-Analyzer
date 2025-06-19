@@ -1,59 +1,77 @@
 import time
+import urllib
 
 import requests
 import json
 import sys
+import re
+import logging
 
-def countdown(seconds):
-    for i in range(seconds, 0, -1):
-        print(f"Countdown: {i} seconds remaining", end='\r')
-        time.sleep(1)
-    print("Time's up!                         ")
 
-# As reddit updates first, we'll use it, instead of RoyalRoad. Thanks
+
+# As reddit updates first, we'll use it, instead of RoyalRoad. Thanks to https://github.com/lizard-demon/hfydl for the inspiration
 chapter_url = "https://www.reddit.com/r/HFY/comments/yd3cu3/wearing_power_armor_to_a_magic_school_1/.json"
-next_found = True
-HEADERS = {'User-Agent': 'WPAtaMS-Analyzer2'}
+HEADERS = {'User-Agent': 'WPAtaMS-Analyzer'}
 
-f = open("aaaa.txt","w")
 
-while next_found is True:
-    print(f"[DEBUG] Fetching URL: {chapter_url}", file=sys.stdout)
+def safe_request(url,headers) -> dict:
+    """
+    This function handles the request, and the rate limits
 
-    response = requests.get(chapter_url+".json", headers=HEADERS, timeout=10)
-    print(f"[DEBUG] Response: {response}", file=sys.stdout)
-    if response.status_code != 200:
-        #as nothing changed this should work
-        countdown(60)
-        continue
-    response = response.text
-    print(f"[DEBUG] First 100 characters: {response[:100]}", file=sys.stdout)
-    response = json.loads(response)
-    print("[DEBUG] JSON loaded")
-    print(f"[DEBUG] Response received", file=sys.stdout)
-    text = response[0]['data']['children'][0]['data']['selftext']
-    print(f"[DEBUG] Text length: {len(text)} characters", file=sys.stdout)
-    lines : list[str]= text.split('\n')
-
-    for idx,line in enumerate(lines):
-        if line.find('[Next](')!=-1:
-            print(f"[DEBUG] Found 'Next' in line {idx}: {line}", file=sys.stdout)
-            if idx == 0:
-                print(f"[DEBUG] 'Next' link is first line, removing and continuing", file=sys.stdout)
-                lines.pop(idx)
-                continue
-            else:
-                next_found = True
-                index = line.find('[Next](')
-                next_link = line[index + 7:-1]
-                print(f"[DEBUG] Next chapter URL: {next_link}", file=sys.stdout)
-                chapter_url = next_link
-                f.writelines(lines[:idx])
-                f.write('\n')
-                break
+    :param url:
+    :return dict:
+    """
+    logger = logging.getLogger(__name__)
+    logger.info(f"Requesting url {url}, with headers {headers}")
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        logger.info(f"Response gotten, content: {response.content[:100]}")
+    except requests.exceptions.RequestException as e:
+        logger.error(e)
+        sys.exit(1)
+    if response.status_code == 200:
+        return response.json()
+    elif response.status_code == 404:
+        logger.error("404 Not Found, ")
+        # A reparse of the last chapter (to get a different link) may be done, but this is not implemented for now
+        sys.exit(1)
+    elif response.status_code == 429:
+        timeout = response.headers.get('Retry-After') if response.headers.get('Retry-After') is not None else 30 # reddit may not give this
+        logger.warning(f"Retrying after {timeout} seconds")
+        time.sleep(int(timeout))
+        return safe_request(url, headers)
     else:
-        print("[DEBUG] No 'Next' link found. Ending download.", file=sys.stdout)
-        next_found = False
+        logger.error("Request failed with status code: " + str(response.status_code))
+        sys.exit(1)
 
-    time.sleep(1)
-f.close()
+
+# we want to recurse into the text. so I want to return a new
+
+def extract(url, headers, book):
+    response = safe_request(url, headers)
+    lines = response[0]['data']['children'][0]['data']['selftext'].split('\n')
+    logging.info(f"Extracted {len(lines)} paragraphs")
+    book.append(lines)
+    for line in lines:
+        if line.find('[Next](') != -1:
+            index  = line.find('[Next](')
+            next_link = line[index + 7:-1]+'.json'
+            print(next_link)
+            return extract(next_link, headers,book)
+    else: return None
+
+
+
+
+def main():
+    logger = logging.getLogger(__name__)
+
+    logger.info(f"Starting download, starting link is {chapter_url}")
+    book = []
+
+    a = extract(chapter_url, HEADERS, book)
+    print(book)
+
+if __name__ == "__main__":
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+    main()
