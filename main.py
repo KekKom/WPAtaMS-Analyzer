@@ -47,18 +47,22 @@ def safe_request(url,headers) -> dict:
 
 # we want to recurse into the text. so I want to return a new
 
-def extract(url, headers, book):
+def extract(url, headers, book=None):
+    if book is None:
+        book = []
     response = safe_request(url, headers)
     lines = response[0]['data']['children'][0]['data']['selftext'].split('\n')
     logging.info(f"Extracted {len(lines)} paragraphs")
     book.append(lines)
     for line in lines:
         if line.find('[Next](') != -1:
+            logging.info(f"Found the link to the next chapter")
             index  = line.find('[Next](')
             next_link = line[index + 7:-1]+'.json'
             print(next_link)
             return extract(next_link, headers,book)
-    else: return None
+    else:
+        return book
 
 
 
@@ -67,10 +71,14 @@ def main():
     logger = logging.getLogger(__name__)
 
     logger.info(f"Starting download, starting link is {chapter_url}")
-    book = []
 
-    a = extract(chapter_url, HEADERS, book)
-    print(book)
+
+    a = extract(chapter_url, HEADERS)
+    # print(a)
+    b = json.dumps(a)
+    with open('chapters.json', 'w', encoding='utf-8') as f:
+        f.write(b)
+
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
