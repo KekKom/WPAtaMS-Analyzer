@@ -35,7 +35,7 @@ def safe_request(url,headers) -> dict:
         logger.error("404 Not Found, ")
         # A reparse of the last chapter (to get a different link) may be done, but this is not implemented for now
         sys.exit(1)
-    elif response.status_code == 429:
+    elif response.status_code == 429 or response.status_code == 503:
         timeout = response.headers.get('Retry-After') if response.headers.get('Retry-After') is not None else 30 # reddit may not give this
         logger.warning(f"Retrying after {timeout} seconds")
         time.sleep(int(timeout))
@@ -47,7 +47,14 @@ def safe_request(url,headers) -> dict:
 
 # we want to recurse into the text. so I want to return a new
 
-def extract(url, headers, book=None):
+def extract(url:str, headers:dict[str,str], book=None)->list:
+    """
+    This function recurses into the book and extracts all the chapters
+    :str url: Url of the starting chapter
+    :dict headers: Headers of the request
+    :param book: This should be left empty and the return should be used
+    :return: The contents of the chapters
+    """
     if book is None:
         book = []
     response = safe_request(url, headers)
@@ -65,21 +72,79 @@ def extract(url, headers, book=None):
         return book
 
 
+def load_book(path: str="chapters.json")->list:
+    try:
+        with open(path) as f:
+            logging.info(f"Reading {path}")
+            return json.loads(f.read())
+    except FileNotFoundError:
+        logging.warning(f"File {path} not found, creating a new one")
+        # If it does not exist, Download anyway and save it for later
+        return extract(chapter_url, HEADERS)
+
+def clean(book:list[list[str]]) -> list:
+
+    cleaned_book = []
+    for idx,chapter in enumerate(book):
+        logging.info(f"Cleaning chapter: {idx}")
+        cleaned_chapter = [line for line in chapter if line.strip()!='']
+        cleaned_book.append(cleaned_chapter)
 
 
-def main():
+    return cleaned_book
+
+def timstampify(book:list[list[str]], start_time=1530):
+
+
+    timestamps = [[start_time]]
+
+
+    regex = re.compile(r'(?i)(?=.*\b(?:TIME:|HOURS)\b).*?((?:[01]\d|2[0-3]):?[0-5]\d)')
+
+    logging.info("Compiled the regex")
+    for idx, chapter in enumerate(book):
+        logging.info(f"Analyzing chapter: {idx}")
+        timestamps.append(timestamps_from_chapter(chapter, regex))
+
+
+    return timestamps,0
+
+
+def timestamps_from_chapter(chapter, regex):
+    ch_timestamps = []
+    for idx,line in enumerate(chapter):
+        match = regex.search(line)
+        if not match:
+            # logging.info(f"No timestamps found in line {idx}")
+            continue
+        logging.info(f"Matched {idx}: {match.group(1)}")
+        ch_timestamps.append(convert_to_MaM(match.group(1)))
+
+    return ch_timestamps
+
+def convert_to_MaM(timestamp):
+    timestamp = timestamp.replace(':','')
+    hours = int(timestamp[:2])
+    minutes = int(timestamp[2:])
+
+    return (60*hours)+minutes
+
+def main(skip_chapter_download:bool=False):
     logger = logging.getLogger(__name__)
 
-    logger.info(f"Starting download, starting link is {chapter_url}")
+
+    if skip_chapter_download:
+        logger.info(f"Skipping chapter download")
+        book = load_book()
+    else:
+        logger.info(f"Starting download, starting link is {chapter_url}")
+        book = extract(chapter_url, HEADERS)
 
 
-    a = extract(chapter_url, HEADERS)
-    # print(a)
-    b = json.dumps(a)
-    with open('chapters.json', 'w', encoding='utf-8') as f:
-        f.write(b)
-
+    book = clean(book)
+    AT,EoC = timstampify(book)
+    print(AT)
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-    main()
+    main(skip_chapter_download=True)

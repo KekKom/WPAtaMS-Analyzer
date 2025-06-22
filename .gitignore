@@ -171,3 +171,5 @@ tmp/
 res.csv
 .jupyter/desktop-workspaces/default-37a8.jupyterlab-workspace
 .jupyter/desktop-workspaces/auto-p-7d55.jupyterlab-workspace
+
+chapters.json
