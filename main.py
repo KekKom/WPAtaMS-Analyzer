@@ -1,3 +1,5 @@
+import os
+
 import time
 import urllib
 
@@ -37,7 +39,7 @@ def safe_request(url,headers) -> dict:
         sys.exit(1)
     elif response.status_code == 429 or response.status_code == 503:
         timeout = response.headers.get('Retry-After') if response.headers.get('Retry-After') is not None else 30 # reddit may not give this
-        logger.warning(f"Retrying after {timeout} seconds")
+        logger.warning(f"Retrying after {timeout} seconds, due to {resonse.status_code}")  # This is not an error as we sys.exit(1) on error
         time.sleep(int(timeout))
         return safe_request(url, headers)
     else:
@@ -76,11 +78,32 @@ def load_book(path: str="chapters.json")->list:
     try:
         with open(path) as f:
             logging.info(f"Reading {path}")
-            return json.loads(f.read())
+            try:
+                book = json.loads(f.read())
+                logging.info(f"Loaded {len(book)} chapters")
+                return book
+            except json.decoder.JSONDecodeError:
+                logging.error("Error reading json, removing the file and trying again")
+
+                os.remove(path)
+                logging.info(f"Removed {path}")
+                return write_book(path)
+
+
+
     except FileNotFoundError:
         logging.warning(f"File {path} not found, creating a new one")
         # If it does not exist, Download anyway and save it for later
-        return extract(chapter_url, HEADERS)
+        return write_book(path)
+
+
+def write_book(path):
+    book = extract(chapter_url, HEADERS)
+    logging.info(f"Writing {path}")
+    with open(path, 'w') as f:
+        f.write(json.dumps(book))
+    return book
+
 
 def clean(book:list[list[str]]) -> list:
 
@@ -90,6 +113,8 @@ def clean(book:list[list[str]]) -> list:
         cleaned_chapter = [line for line in chapter if line.strip()!='']
         cleaned_book.append(cleaned_chapter)
 
+    # I want to delete any possible links and the authors note
+    # Problem is that the
 
     return cleaned_book
 
@@ -99,12 +124,13 @@ def timstampify(book:list[list[str]], start_time=1530):
     timestamps = [[start_time]]
 
 
-    regex = re.compile(r'(?i)(?=.*\b(?:TIME:|HOURS)\b).*?((?:[01]\d|2[0-3]):?[0-5]\d)')
+    regex = re.compile(r'\btime\s*:\s*((?:[01]\d|2[0-3]):?[0-5]\d)',re.IGNORECASE) # basically just "time: hh:mm" (with : being optional), obviously
 
     logging.info("Compiled the regex")
     for idx, chapter in enumerate(book):
         logging.info(f"Analyzing chapter: {idx}")
         timestamps.append(timestamps_from_chapter(chapter, regex))
+
 
 
     return timestamps,0
@@ -144,6 +170,12 @@ def main(skip_chapter_download:bool=False):
     book = clean(book)
     AT,EoC = timstampify(book)
     print(AT)
+
+    from matplotlib import pyplot as plt
+    a = [x for xs in AT for x in xs]
+    print(a)
+    plt.scatter(a,range(len(a)))
+    plt.show()
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
