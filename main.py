@@ -1,7 +1,6 @@
 import os
 
 import time
-import urllib
 
 import requests
 import json
@@ -9,14 +8,14 @@ import sys
 import re
 import logging
 
-
+from timestampify import timstampify
 
 # As reddit updates first, we'll use it, instead of RoyalRoad. Thanks to https://github.com/lizard-demon/hfydl for the inspiration
 chapter_url = "https://www.reddit.com/r/HFY/comments/yd3cu3/wearing_power_armor_to_a_magic_school_1/.json"
 HEADERS = {'User-Agent': 'WPAtaMS-Analyzer'}
 
 
-def safe_request(url,headers) -> dict:
+def safe_request(url, headers) -> dict:
     """
     This function handles the request, and the rate limits
 
@@ -38,8 +37,10 @@ def safe_request(url,headers) -> dict:
         # A reparse of the last chapter (to get a different link) may be done, but this is not implemented for now
         sys.exit(1)
     elif response.status_code == 429 or response.status_code == 503:
-        timeout = response.headers.get('Retry-After') if response.headers.get('Retry-After') is not None else 30 # reddit may not give this
-        logger.warning(f"Retrying after {timeout} seconds, due to {resonse.status_code}")  # This is not an error as we sys.exit(1) on error
+        timeout = response.headers.get('Retry-After') if response.headers.get(
+            'Retry-After') is not None else 30  # reddit may not give this
+        logger.warning(
+            f"Retrying after {timeout} seconds, due to {resonse.status_code}")  # This is not an error as we sys.exit(1) on error
         time.sleep(int(timeout))
         return safe_request(url, headers)
     else:
@@ -49,7 +50,7 @@ def safe_request(url,headers) -> dict:
 
 # we want to recurse into the text. so I want to return a new
 
-def extract(url:str, headers:dict[str,str], book=None)->list:
+def extract(url: str, headers: dict[str, str], book=None) -> list:
     """
     This function recurses into the book and extracts all the chapters
     :str url: Url of the starting chapter
@@ -66,15 +67,15 @@ def extract(url:str, headers:dict[str,str], book=None)->list:
     for line in lines:
         if line.find('[Next](') != -1:
             logging.info(f"Found the link to the next chapter")
-            index  = line.find('[Next](')
-            next_link = line[index + 7:-1]+'.json'
+            index = line.find('[Next](')
+            next_link = line[index + 7:-1] + '.json'
             print(next_link)
-            return extract(next_link, headers,book)
+            return extract(next_link, headers, book)
     else:
         return book
 
 
-def load_book(path: str="chapters.json")->list:
+def load_book(path: str = "chapters.json") -> list:
     try:
         with open(path) as f:
             logging.info(f"Reading {path}")
@@ -105,59 +106,71 @@ def write_book(path):
     return book
 
 
-def clean(book:list[list[str]]) -> list:
+def clean(book: list[list[str]]) -> list[list[str]]:
+    """
+    Cleans a book organized as a list of chapters, where each chapter is a list of paragraphs.
 
-    cleaned_book = []
-    for idx,chapter in enumerate(book):
-        logging.info(f"Cleaning chapter: {idx}")
-        cleaned_chapter = [line for line in chapter if line.strip()!='']
-        cleaned_book.append(cleaned_chapter)
+    This function performs the following actions on each chapter:
+    1. Removes the author's note and any content that comes after it.
+    2. Removes any Markdown-style links.
+    3. Removes any empty or whitespace-only paragraphs.
 
-    # I want to delete any possible links and the authors note
-    # Problem is that the
+    Notes:
+        This is by Gemini, it is somewhat how i would make it, just a tiny bit better
 
-    return cleaned_book
+    Args:
+        book: A list where each item is a chapter, and each chapter is a list of strings (paragraphs).
 
-def timstampify(book:list[list[str]], start_time=1530):
+    Returns:
+        A cleaned list of chapters, formatted in the same way as the input.
+    """
+    # This regex correctly identifies all variations of "Author's Note" found in your text.
+    author_note_regex = re.compile(r"\((Author(['’])s Note)( \d+)?:", re.IGNORECASE)
 
+    # This regex finds and will be used to remove Markdown-style links like [text](url)
+    link_regex = re.compile(r'\[.*?\]\(https?://.*?\)')
 
-    timestamps = [[start_time]]
+    fully_cleaned_book = []
 
-
-    regex = re.compile(r'\btime\s*:\s*((?:[01]\d|2[0-3]):?[0-5]\d)',re.IGNORECASE) # basically just "time: hh:mm" (with : being optional), obviously
-
-    logging.info("Compiled the regex")
+    # Iterate through each chapter in the book
     for idx, chapter in enumerate(book):
-        logging.info(f"Analyzing chapter: {idx}")
-        timestamps.append(timestamps_from_chapter(chapter, regex))
+        logging.info(f"Cleaning chapter: {idx + 1}")
+
+        # --- Step 1: Find the author's note and truncate the chapter ---
+
+        note_index = -1
+        # Search backwards from the end of the chapter for efficiency
+        for i in range(len(chapter) - 1, -1, -1):
+            if author_note_regex.search(chapter[i]):
+                logging.info(f"Found author note: {i + 1}")
+                note_index = i
+                break  # Found the note, no need to search further back
+
+        # Slice the chapter to get only the paragraphs before the note
+        if note_index != -1:
+            # Correct slice keeps everything UP TO the note paragraph
+            content_paragraphs = chapter[:note_index]
+            logging.info(f"Slicing to [:{note_index}], giving {len(content_paragraphs)} paragraphs")
+        else:
+            # If no note was found, process the whole chapter
+            content_paragraphs = chapter
+            logging.info("No author note found")
+
+        logging.info(f"Starting step two for chapter {idx + 1}")
+        # --- Step 2: Clean the remaining paragraphs ---
+        # Use a list comprehension to remove links and filter out empty lines in one pass.
+        # .sub() removes the links, and `if paragraph.strip()` removes empty/whitespace lines.
+        cleaned_chapter = [link_regex.sub('', paragraph).strip() for paragraph in content_paragraphs if
+                           paragraph.strip()]
+        logging.info(f"Cleaned chapter: {len(cleaned_chapter)}")
+
+        fully_cleaned_book.append(cleaned_chapter)
+
+    return fully_cleaned_book
 
 
-
-    return timestamps,0
-
-
-def timestamps_from_chapter(chapter, regex):
-    ch_timestamps = []
-    for idx,line in enumerate(chapter):
-        match = regex.search(line)
-        if not match:
-            # logging.info(f"No timestamps found in line {idx}")
-            continue
-        logging.info(f"Matched {idx}: {match.group(1)}")
-        ch_timestamps.append(convert_to_MaM(match.group(1)))
-
-    return ch_timestamps
-
-def convert_to_MaM(timestamp):
-    timestamp = timestamp.replace(':','')
-    hours = int(timestamp[:2])
-    minutes = int(timestamp[2:])
-
-    return (60*hours)+minutes
-
-def main(skip_chapter_download:bool=False):
+def main(skip_chapter_download: bool = False):
     logger = logging.getLogger(__name__)
-
 
     if skip_chapter_download:
         logger.info(f"Skipping chapter download")
@@ -166,17 +179,25 @@ def main(skip_chapter_download:bool=False):
         logger.info(f"Starting download, starting link is {chapter_url}")
         book = extract(chapter_url, HEADERS)
 
-
     book = clean(book)
-    AT,EoC = timstampify(book)
-    print(AT)
+    MaM, AT, EoC = timstampify(book)
+    # print(AT)
 
     from matplotlib import pyplot as plt
-    a = [x for xs in AT for x in xs]
+    # a = [x for xs in AT for x in xs]
+    a = [x//1440 for x in EoC]
+    # a = EoC
+    # print(a)
     print(a)
-    plt.scatter(a,range(len(a)))
+    plt.scatter(range(len(a)), a)
+    plt.ylim(24 * 60)
+    plt.ylim(len(a))
     plt.show()
 
+
+    # print(EoC[-1]//1440)
+
+
 if __name__ == "__main__":
-    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
     main(skip_chapter_download=True)
