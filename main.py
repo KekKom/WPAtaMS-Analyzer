@@ -186,65 +186,21 @@ def main(skip_chapter_download: bool = False):
         logger.info(f"Starting download, starting link is {chapter_url}")
         book = extract(chapter_url, HEADERS)
 
-    book = clean(book)[92:97]
+    book = clean(book)
 
     MaM, AT, EoC = timstampify(book)
-
-    # MaM = MaM[116:120]
-    # AT = AT[116:120]
-    # EoC = EoC[116:120]
-
-
-    """
-    ONLY DEBUG CODE AFTER THIS POINT
-    """
+    day_chapters = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3,
+                   4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7,
+                   7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12,
+                   12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 16, 16, 16, 17,
+                   17, 17, 18, 18, 19, 19, 19, 19, 20, 21, 22, 22]
+    print(len(EoC),len(AT),len(MaM))
+    for idx, chapter in enumerate(EoC):
+        print(f"chapter: {idx+1} , ends on day {(chapter // 1_440)+1}, according to the table it should be: {day_chapters[idx]}, so it is {'wrong' if day_chapters[idx] != ((chapter // 1_440)+1) else 'correct'})")
     plot(MaM,AT,EoC)
-    bbb = [a //1440 for a in EoC]
-    aaa = np.array(bbb)
-    ccc =(np.diff(aaa))
-    # print(ccc)
-    # print(np.sum(ccc))
-    # print(AT)
-    # print(MaM)
 
-    flat = []
-    for ele in MaM:
-        a = np.array(ele)
-        # print(np.diff(a))
-        flat += ele
-    fla = np.array(flat)
-    diffs = (np.diff(fla))
-    # print(sorted(diffs.tolist()))
-    out = ""
-    for el in flat:
-        out += f"{el:-6},"
-
-    # print(out)
-
-    out = ""
-    for el in diffs:
-        out += f"{el:-6},"
-    #
-    # print(out)
-
-    if diffs.tolist().index(-30):
-        pass
-        # print("dsff")
-    # print(diffs.tolist())
-    # from matplotlib import pyplot as plt
-    # # a = [x for xs in AT for x in xs]
-    # a = [x//1440 for x in EoC]
-    # # a = EoC
-    # # print(a)
-    # print(a)
-    # plt.scatter(range(len(a)), a)
-    # plt.ylim(24 * 60)
-    # plt.ylim(len(a))
-    # plt.show()
-
-    # print(EoC[-1]//1440)
 
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
-    main(skip_chapter_download=False)
+    main(skip_chapter_download=True)

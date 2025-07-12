@@ -30,12 +30,12 @@ def plt_hour_markers(skip,subplot):
     # arcane magic below
 
     subplot.yaxis.set_major_formatter(ticker.FuncFormatter(minutesToHhmm))
-    subplot.yaxis.set_major_locator(ticker.MultipleLocator(60))
+    subplot.yaxis.set_major_locator(ticker.MultipleLocator(60*12))
 
     return
 
 
-def plot(MaM,*args,**kwargs):
+def plot(MaM, AT, EoC,*args,**kwargs):
 
 
     size = (19.2, 10.8)
@@ -47,7 +47,7 @@ def plot(MaM,*args,**kwargs):
     # noinspection PyTypeChecker
     plt_hour_markers(2,ax) # pycharm is wrong, it has that
 
-    for idx, chapter in enumerate(MaM):
+    for idx, chapter in enumerate(AT):
         # Now for the three possibilities
         if len(chapter) == 0:
             # draw a red x at -100
@@ -63,7 +63,7 @@ def plot(MaM,*args,**kwargs):
     ax.xaxis.set_major_locator(ticker.MultipleLocator(1,0.5))
 
     plt.xlim(0,len(MaM))
-    plt.ylim(-20,1460)
+    plt.ylim(-20,max(EoC)+60)
     plt.tight_layout()
     plt.show()
     return

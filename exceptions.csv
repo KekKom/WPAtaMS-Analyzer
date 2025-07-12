@@ -1,0 +1,10 @@
+# This file contains the exceptions for the datechanges in WPAtaMS, some are due to flashbacks, some due to errors
+# The syntax is simple
+# First column is the chapter INDEX (0 indexed, because chaos)
+# Second column is the timestamp index for the given chapter (0 in case of single timestamp / timestampless)
+# Third is how much to change (negative is ignore)
+
+
+41,0,0  # We are going back to see the arrival at the dorms from Emma's perspective
+94,0,0  # Actual error, the group exits the workshop before they should have arrived
+119,0,0 # We see the gang talk about the meeting we saw them arrive at the end of the previous chapter

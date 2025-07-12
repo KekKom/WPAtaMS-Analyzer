@@ -1,7 +1,13 @@
 import csv
 import logging
+import os
 import re
 
+import pandas as pd
+
+
+# day_chapters = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 16, 16, 16, 17, 17, 17, 18, 18, 19, 19, 19, 19, 20, 21, 22, 22]
+# print(len(day_chapters))
 
 def load_exceptions(path: str) -> dict[tuple[int, int], int]:
     """
@@ -24,22 +30,34 @@ def load_exceptions(path: str) -> dict[tuple[int, int], int]:
         to the date correction value.
     """
     exceptions = {}
+    
+    if not os.path.isfile(path):
+        logging.error('File "%s" does not exist. Running with no exceptions', path)
+        return exceptions
 
-    with open(path, newline='') as csvfile:
-        raw_exceptions = csv.reader(csvfile, delimiter=',', quotechar='#')
+    raw_exceptions = pd.read_csv(path,comment='#',header=None).to_dict()
 
-        for row in raw_exceptions:
+
+
+    try:
+        df = pd.read_csv(path, comment="#", header=None)
+        for _, row in df.iterrows():
             key = (int(row[0]), int(row[1]))
             exceptions[key] = int(row[2])
+    except Exception as e:
+        logging.error("Failed to load exceptions from '%s': %s", path, e)
 
     return exceptions
 
+
 def convert_to_MaM(timestamp):
     timestamp = timestamp.replace(':', '')
+    timestamp = timestamp.zfill(4)
     hours = int(timestamp[:2])
     minutes = int(timestamp[2:])
 
     return (60 * hours) + minutes
+
 
 def timestamps_from_chapter(chapter, regex):
     ch_timestamps = []
@@ -52,12 +70,13 @@ def timestamps_from_chapter(chapter, regex):
         ch_timestamps.append(convert_to_MaM(match.group(1)))
     return ch_timestamps
 
-def timstampify(book: list[list[str]], start_time=930, exceptions_path: str="exceptions.csv"):
+
+def timstampify(book: list[list[str]], start_time=930, exceptions_path: str = "exceptions.csv"):
     MaM: list[list[int]] = [[start_time]]
-    AT:  list[list[int]] = [[start_time]]
+    AT: list[list[int]] = [[start_time]]
     # I want three different lists, not references
 
-    EoC: list[int] = [start_time] # This is a flat list of one index per chapter
+    EoC: list[int] = [start_time]  # This is a flat list of one index per chapter
 
     book = book[1:] if book else []
 
@@ -70,40 +89,65 @@ def timstampify(book: list[list[str]], start_time=930, exceptions_path: str="exc
     for idx, chapter in enumerate(book):
         logging.info(f"Analyzing chapter: {idx}")
         from_chapter = timestamps_from_chapter(chapter, regex)
-        MaM.extend(from_chapter)
+        MaM.append(from_chapter)
 
-    day          = 0
+    day = 0
     previous_MaM = MaM[0][0]
-    previous_AT  = AT[0][0]
+    previous_AT = AT[0][0]
 
-    for c_idx, chapter in enumerate(MaM[1:], start=1):
+    for c_idx, chapter in enumerate(MaM):
         # Chapter 1 is manually analyzed, skipping it
+        if c_idx == 0:
+            continue
 
         # OK, as there are exceptions, we have more possibilities
 
         # Technically, an exception could be added for a timestampless chapter
         if len(chapter) == 0:
-            if exceptions[(c_idx,0)] is None:
-                EoC.append(EoC[c_idx-1]) # use last chapter's EoC
-                continue
-            else:
-                # If there is a date change
-                # TODO: Implement this, left empty for now, needs more of the structure
-                pass
+            day_jump = handle_exceptions(c_idx, 0, exceptions, previous_MaM)
+            day += day_jump
 
-        for jdx, timestamp in enumerate(chapter):
-            day = timestamp // 1440
-            if timestamp < previous_timestamp:
-                pass
+            previous_AT  += day_jump * 1_440
+
+            AT.append([])
+            EoC.append(previous_AT)
+            continue
+
+        chapter_AT = []
+        for ts_idx, timestamp in enumerate(chapter):
+
+            day += handle_exceptions(c_idx, ts_idx, exceptions, previous_MaM, timestamp)
+
+            previous_MaM = timestamp
+            previous_AT  = timestamp + (day * 1_440)
+            chapter_AT.append(previous_AT)
+
+        AT.append(chapter_AT)
+        EoC.append(previous_AT)
+
+        # if (day+1) != day_chapters[c_idx]:
+        #     pass
+
+
 
     return MaM, AT, EoC
 
 
+def handle_exceptions(c_idx, ts_idx, exceptions, previous_MaM, timestamp=9000):
+    exception = exceptions.get((c_idx, ts_idx), None)
+    if exception is not None:
+        days_jump = max(exception, 0)
+    elif timestamp < previous_MaM:
+        days_jump = 1
+    else:
+        days_jump = 0
+    return days_jump
 
 
+def convert_to_DDHHMM(timestamp: int):
+    # 3084 minutes
 
+    days, remainder = divmod(timestamp, 1440)
+    hours, minutes = divmod(remainder, 60)
 
-def convert_to_DDHHMM(timestamp:int):
-    days = timestamp // (24*60)
-    hours = timestamp % (24*60)
-    return (days, hours)
+    return f"{days:02d}:{hours:02d}:{minutes:02d}"
