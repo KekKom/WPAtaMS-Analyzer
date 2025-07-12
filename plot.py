@@ -4,7 +4,6 @@ from matplotlib import ticker
 
 
 
-
 def plot_multiple(chapter, idx):
 
     unit = 1/(len(chapter)+1) # the +1 is to create a bit of space at the beginning
@@ -37,7 +36,6 @@ def plt_hour_markers(skip,subplot):
 
 def plot(MaM, AT, EoC,*args,**kwargs):
 
-
     size = (19.2, 10.8)
     fig = plt.figure(figsize=size)
     ax = fig.add_subplot(1,1,1)
@@ -56,7 +54,6 @@ def plot(MaM, AT, EoC,*args,**kwargs):
             plt.scatter(idx+0.5,chapter[0])
         else:
             plot_multiple(chapter,idx)
-
 
 
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos:int(x)))
