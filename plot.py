@@ -34,11 +34,15 @@ def plt_hour_markers(skip,subplot):
     return
 
 
+
+
 def plot(MaM, AT, EoC,*args,**kwargs):
 
     size = (19.2, 10.8)
     fig = plt.figure(figsize=size)
     ax = fig.add_subplot(1,1,1)
+
+
 
 
     plot_chapter_markers(len(MaM))
@@ -59,8 +63,12 @@ def plot(MaM, AT, EoC,*args,**kwargs):
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x,pos:int(x)))
     ax.xaxis.set_major_locator(ticker.MultipleLocator(1,0.5))
 
-    plt.xlim(0,len(MaM))
-    plt.ylim(-20,max(EoC)+60)
+
+    plt.xlim(0,len(MaM)+10)
+    plt.ylim(-20,max(EoC)+60+1440)
     plt.tight_layout()
+    plt.legend()
     plt.show()
     return
+
+

@@ -14,13 +14,17 @@ from timestampify import timstampify
 
 # As reddit updates first, we'll use it, instead of RoyalRoad. Thanks to https://github.com/lizard-demon/hfydl for the inspiration
 chapter_url = "https://www.reddit.com/r/HFY/comments/yd3cu3/wearing_power_armor_to_a_magic_school_1/.json"
-HEADERS = {'User-Agent': 'WPAtaMS-Analyzer'}
+headers = {'User-Agent': 'Linux:WPAtaMS-Analyzer1:v3.9.0 (by /u/Prymu)'}
+
+
+
 
 
 def safe_request(url, headers) -> dict:
     """
     This function handles the request and the rate limits
 
+    :param retryCount:
     :type headers: dict[str, str]
     :param url: str
     :return dict:
@@ -41,10 +45,11 @@ def safe_request(url, headers) -> dict:
         # A reparse of the last chapter (to get a different link) may be done, but this is not implemented for now
         sys.exit(1)
     elif response.status_code == 429 or response.status_code == 503:
+
         timeout = response.headers.get('Retry-After') if response.headers.get(
             'Retry-After') is not None else 30  # reddit may not give this
         logger.warning(
-            f"Retrying after {timeout} seconds, due to {response.status_code}")  # This is not an error as we sys.exit(1) on error
+            f"Retrying after {timeout} seconds, due to {response.status_code}")  # This will not crash, as we sys.exit(1) on else
         time.sleep(int(timeout))
         return safe_request(url, headers)
     else:
@@ -99,7 +104,7 @@ def load_book(path: str = "chapters.json") -> list:
 
 
 def write_book(path):
-    book = extract(chapter_url, HEADERS)
+    book = extract(chapter_url, headers)
     logging.info(f"Writing {path}")
     with open(path, 'w') as f:
         f.write(json.dumps(book))
@@ -175,6 +180,14 @@ def find_authors_note(author_note_regex, chapter):
 
     return None
 
+def testTrainSplit(data,percentage = 0.8):
+    trainLength = int(percentage * len(data))
+    skipped = int((len(data) - trainLength)/2)
+    train = data[0:trainLength]
+    test = data[trainLength+skipped:]
+    return train, test
+
+
 
 def main(skip_chapter_download: bool = False):
     logger = logging.getLogger(__name__)
@@ -184,23 +197,26 @@ def main(skip_chapter_download: bool = False):
         book = load_book()
     else:
         logger.info(f"Starting download, starting link is {chapter_url}")
-        book = extract(chapter_url, HEADERS)
+        book = extract(chapter_url, headers)
 
     book = clean(book)
 
     MaM, AT, EoC = timstampify(book)
-    day_chapters = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3,
-                   4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7,
-                   7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12,
-                   12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 16, 16, 16, 17,
-                   17, 17, 18, 18, 19, 19, 19, 19, 20, 21, 22, 22]
-    print(len(EoC),len(AT),len(MaM))
-    for idx, chapter in enumerate(EoC):
-        print(f"chapter: {idx+1} , ends on day {(chapter // 1_440)+1}, according to the table it should be: {day_chapters[idx]}, so it is {'wrong' if day_chapters[idx] != ((chapter // 1_440)+1) else 'correct'})")
-    plot(MaM,AT,EoC)
+    # plot(MaM,AT,EoC)
+
+    train, test = testTrainSplit(EoC, 0.8)
+    from testingModels import make_models, evaluate_and_plot
+    models = make_models(poly_degrees=(2, 3, 4, 5), ridge_alpha=0.0, include_extras=True)
+    metrics = evaluate_and_plot(train, test, EoC,models)
+
+    print(metrics)
+
+
+
+
 
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG)
     main(skip_chapter_download=True)
