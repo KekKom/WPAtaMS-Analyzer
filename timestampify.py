@@ -79,7 +79,7 @@ def timstampify(book: list[list[str]], start_time=930, exceptions_path: str = "e
 
     exceptions = load_exceptions(exceptions_path)
 
-    regex = re.compile(r'\btime\s*:\s*((?:[01]\d|2[0-3]):?[0-5]\d)',
+    regex = re.compile(r'\btime\s*:*\s*((?:[01]\d|2[0-3]):?[0-5]\d)',
                        re.IGNORECASE)  # "time: hh:mm" (with the ':' being optional)
 
     logging.info("Compiled the regex")
