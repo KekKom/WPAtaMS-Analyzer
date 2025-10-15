@@ -9,6 +9,8 @@ import sys
 import re
 import logging
 
+from matplotlib import pyplot as plt
+
 from plot import plot
 from timestampify import timstampify
 
@@ -202,14 +204,43 @@ def main(skip_chapter_download: bool = False):
     book = clean(book)
 
     MaM, AT, EoC = timstampify(book)
-    # plot(MaM,AT,EoC)
 
-    train, test = testTrainSplit(EoC, 0.8)
-    from testingModels import make_models, evaluate_and_plot
-    models = make_models(poly_degrees=(2, 3, 4, 5), ridge_alpha=0.0, include_extras=True)
-    metrics = evaluate_and_plot(train, test, EoC,models)
 
-    print(metrics)
+    CT = []
+    for chapter_number, chapter in enumerate(AT):
+        if len(chapter) == 0:
+            continue
+        elif len(chapter) == 1:
+            CT.append((chapter_number+0.5,chapter[0]))
+        else:
+            timestamp_amount = len(chapter)+1
+            sub_index = 1/timestamp_amount
+            for idx,timestamp in enumerate(chapter):
+                ts_position = idx+1
+                position = chapter_number + ts_position * sub_index
+                CT.append((position,timestamp))
+
+
+
+    # al = (np.array(CT))
+    #
+    # from testingmodels2 import run_benchmark_with_diffs, plot_all_models, run_benchmark
+    #
+    # al = np.column_stack([np.arange(200), np.cumsum(np.random.exponential(scale=1.0, size=200))])
+    # results, (winner_name, winner_res), split_meta = run_benchmark(
+    #     al, test_size=0.2, gap_steps=24, horizon=48, monotone_mode="shift_cummax"
+    # )
+    # plot_all_models(al, results, title="CT with GAP-aware Test Evaluation")
+    #
+    # results2, (winner_name2, winner_res2), split_meta2 = run_benchmark_with_diffs(
+    #     al, test_size=0.2, gap_steps=24, horizon=48
+    # )
+    # plot_all_models(al, results2, title="CT with GAP-aware Test Evaluation (Diff Models)")
+
+    plot(MaM,AT,EoC)
+
+    print(CT[-1])
+
 
 
 
@@ -218,5 +249,5 @@ def main(skip_chapter_download: bool = False):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG)
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     main(skip_chapter_download=True)
