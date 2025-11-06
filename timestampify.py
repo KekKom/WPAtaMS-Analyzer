@@ -84,6 +84,8 @@ def timstampify(book: list[list[str]], start_time=930, exceptions_path: str = "e
 
     logging.info("Compiled the regex")
     for idx, chapter in enumerate(book):
+        if idx > 145:
+            pass
         logging.info(f"Analyzing chapter: {idx}")
         from_chapter = timestamps_from_chapter(chapter, regex)
         MaM.append(from_chapter)

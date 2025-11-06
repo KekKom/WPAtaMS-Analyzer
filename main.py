@@ -1,4 +1,5 @@
 import os
+import pickle
 
 import time
 
@@ -141,6 +142,8 @@ def clean(book: list[list[str]]) -> list[list[str]]:
 
     # Iterate through each chapter in the book
     for idx, chapter in enumerate(book):
+
+
         logging.info(f"Cleaning chapter: {idx + 1}")
 
         note_index = find_authors_note(author_note_regex, chapter)
@@ -237,10 +240,29 @@ def main(skip_chapter_download: bool = False):
     # )
     # plot_all_models(al, results2, title="CT with GAP-aware Test Evaluation (Diff Models)")
 
-    plot(MaM,AT,EoC)
 
-    print(CT[-1])
+    # print(CT[-1])
 
+    # so i need to scale both x and y to a range from 0 to .... lets use 0.8
+
+    # 0 stays 0 but the max needs to be lower, but by how much
+
+    xmax = CT[-1][0]
+    ymax = CT[-1][1]
+    k_x = 0.75/xmax
+    k_y = 0.75/ymax
+
+    CT2= np.array(CT) * np.array([k_x, k_y])
+    print(CT2[-10:])
+    # sys.exit(0)
+    # from testingmodels2 import fit_and_report
+    # models,_ = fit_and_report(CT2,True)
+    # print(models)
+    with open("models.pkl", "rb") as f:
+        models = pickle.load(f)
+    # print(res)
+    # print(models.tolist())
+    plot(MaM,AT,EoC,models)
 
 
 
@@ -249,5 +271,5 @@ def main(skip_chapter_download: bool = False):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
+    logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.ERROR)
     main(skip_chapter_download=True)
