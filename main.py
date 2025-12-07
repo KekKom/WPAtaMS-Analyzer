@@ -68,6 +68,7 @@ def extract(url: str, headers: dict[str, str], book=None) -> list:
     :str url: Url of the starting chapter
     :dict headers: Headers of the request
     :param book: This should be left empty and the return should be used
+
     :return: The contents of the chapters
     """
     if book is None:
@@ -255,14 +256,12 @@ def main(skip_chapter_download: bool = False):
     CT2= np.array(CT) * np.array([k_x, k_y])
     print(CT2[-10:])
     # sys.exit(0)
-    # from testingmodels2 import fit_and_report
-    # models,_ = fit_and_report(CT2,True)
-    # print(models)
-    with open("models.pkl", "rb") as f:
-        models = pickle.load(f)
+
+    # with open("models.pkl", "rb") as f:
+    #     models = pickle.load(f)
     # print(res)
     # print(models.tolist())
-    plot(MaM,AT,EoC,models)
+    plot(MaM,AT,EoC)
 
 
 

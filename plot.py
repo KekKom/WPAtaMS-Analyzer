@@ -40,7 +40,7 @@ def plt_hour_markers(skip,subplot,max):
 
 
 
-def plot(MaM, AT, EoC,models,*args,**kwargs):
+def plot(MaM, AT, EoC,*args,**kwargs):
 
     size = (19.2, 10.8)
     fig = plt.figure(figsize=size)
@@ -48,11 +48,7 @@ def plot(MaM, AT, EoC,models,*args,**kwargs):
 
     x = np.linspace(0,len(MaM)+10,1_000).reshape(-1,1)
 
-    for name,model in models.items():
 
-
-        y = model.predict(x)
-        plt.plot(y,label=name)
 
 
     for idx, chapter in enumerate(AT):
